@@ -1,0 +1,20 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- create:
+        - ~/.config/nvim
+        - ~/.config/alacritty
+- link:
+    ~/.bashrc: bashrc
+    ~/.zshrc: zshrc
+    ~/.config/nvim/init.vim: config/nvim/init.vim
+    ~/.config/alacritty/alacritty.yml: config/alacritty/alacritty.yml
+#    ~/.config/i3:
+#        path: config/i3/
+#        create: true
+#        force: true
+
+
