@@ -1,0 +1,4 @@
+i3-wm.gaps.inner.size: 10
+i3-wm.gaps.outer.size: 0
+i3-wm.client.focused.color.child_border: #C2D94C
+i3-wm.client.unfocused.color.child_border: #AAC2D94C
