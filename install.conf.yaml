@@ -7,12 +7,14 @@
 - create:
         - ~/.config/nvim
         - ~/.config/alacritty
+        - ~/.config/regolith
 - link:
     ~/.bashrc: bashrc
     ~/.zshrc: zshrc
     ~/.config/nvim/init.vim: config/nvim/init.vim
     ~/.config/alacritty/alacritty.yml: config/alacritty/alacritty.yml
     ~/.config/regolith/Xresources: config/regolith/Xresources
+    ~/.Xresources-regolith: Xresources-regolith
 #    ~/.config/i3:
 #        path: config/i3/
 #        create: true
