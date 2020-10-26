@@ -8,6 +8,7 @@
         - ~/.config/nvim
         - ~/.config/alacritty
         - ~/.config/regolith
+        - ~/.config/regolith/i3
 - link:
     ~/.bashrc: bashrc
     ~/.zshrc: zshrc
@@ -15,6 +16,7 @@
     ~/.config/alacritty/alacritty.yml: config/alacritty/alacritty.yml
     ~/.config/regolith/Xresources: config/regolith/Xresources
     ~/.Xresources-regolith: Xresources-regolith
+    ~/.config/regolith/i3/config: config/regolith/i3/config
 #    ~/.config/i3:
 #        path: config/i3/
 #        create: true

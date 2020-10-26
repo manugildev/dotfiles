@@ -1,6 +1,3 @@
-set nocompatible
-filetype off
- 
 """""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""
@@ -17,10 +14,13 @@ call plug#begin('~/.config/nvim/bundle/')
 call plug#end()
 filetype plugin indent on
  
+
 """""""""""""""""""""""""""""""""""""""
 " Theme / Editor Settings
 """""""""""""""""""""""""""""""""""""""
+filetype off
 syntax on
+set nocompatible
 colorscheme material-monokai
 set termguicolors
 set background=dark
@@ -45,9 +45,11 @@ set timeout timeoutlen=300
 set showmatch
 set matchtime=3
 set nobackup
-set undodir=~/.vim/undodir
 set undofile
+set undodir=~/.vim/undodir
+set clipboard+=unnamed
  
+
 """""""""""""""""""""""""""""""""""""""
 " KeyBindings
 """""""""""""""""""""""""""""""""""""""
@@ -73,26 +75,23 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 command! Q q
 command! WQ wq
 command! W w
- 
-" Disable scroll wheel (lags sometimes)
-map <ScrollWheelUp> <nop>
-map <S-ScrollWheelUp> <nop>
-map <ScrollWheelDown> <nop>
-map <S-ScrollWheelDown> <nop>
- 
-nnoremap <leader><Up> :silent! let &guifont = substitute( \ &guifont, \ ':h\zs\d\+', \ '\=eval(submatch(0)+1)', \ '')<CR>
-nnoremap <leader><Down> :silent! let &guifont = substitute( \ &guifont, \ ':h\zs\d\+', \ '\=eval(submatch(0)-1)', \ '')<CR>
- 
+
+" Faster close and save of files with leader key
+nnoremap <leader>q :q<CR>
+nnoremap <leader>w :w<CR>
+
 """""""""""""""""""""""""""""""""""""""
 " MarkDown
 """""""""""""""""""""""""""""""""""""""
  
+
 """""""""""""""""""""""""""""""""""""""
 " LightVim 
 """""""""""""""""""""""""""""""""""""""
 set noshowmode
 let g:lightline = { 'colorscheme': 'material_monokai' }
  
+
 """""""""""""""""""""""""""""""""""""""
 " FZF
 """""""""""""""""""""""""""""""""""""""
@@ -122,16 +121,18 @@ let g:fzf_colors = { 'fg':      ['fg', 'Normal'],
 let g:fzf_layout = {'window' : {'width' : 0.8, 'height' : 0.8}}
 let $FZF_DEFAULT_OPTS = '--reverse'
  
+
 """""""""""""""""""""""""""""""""""""""
 " NerdTree
 """""""""""""""""""""""""""""""""""""""
 nnoremap <leader>e :NERDTreeToggle<CR>
 let g:NERDTreeChDirMode = 2 " Change root dir to current dir
+
  
 """""""""""""""""""""""""""""""""""""""
 " Coc
 """""""""""""""""""""""""""""""""""""""
-let g:coc_node_path='/usr/local/bin/node'
+let g:coc_node_path='/usr/bin/node'
 " GoTo code navigation.
 nnoremap <leader>gd <Plug>(coc-definition)
 nmap <leader>gy <Plug>(coc-type-definition)
@@ -143,7 +144,8 @@ nmap <silent> <leader>g] <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
 nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
 nnoremap <leader>cr :CocRestart
- 
+
+
 """""""""""""""""""""""""""""""""""""""
 " Rust
 """""""""""""""""""""""""""""""""""""""
