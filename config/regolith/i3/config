@@ -260,7 +260,7 @@ set_from_resource $i3-wm.program.refresh_ui i3-wm.program.refresh_ui /usr/bin/re
 bindsym $mod+Shift+r exec --no-startup-id $i3-wm.program.refresh_ui
 
 ## Session // Restart i3 // <><Ctrl> r ##
-bindsym $mod+Ctrl+r restart; killall -q compton; sleep 0.5; compton --unredir-if-possible &
+bindsym $mod+Ctrl+r restart;
 
 ## Session // Logout // <><Shift> e ##
 set_from_resource $i3-wm.program.logout i3-wm.program.logout /usr/bin/gnome-session-quit --logout

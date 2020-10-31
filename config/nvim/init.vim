@@ -25,6 +25,7 @@ colorscheme material-monokai
 set termguicolors
 set background=dark
 set relativenumber
+set number
 set ignorecase 
 """ Tabs
 set tabstop=4 
@@ -33,7 +34,7 @@ set expandtab
 " Vertical center align to current line
 set scrolloff=999
 " set cursorline
-set lazyredraw
+" set lazyredraw
 set wildmenu
 set colorcolumn=80
 set nowrap
@@ -47,7 +48,8 @@ set matchtime=3
 set nobackup
 set undofile
 set undodir=~/.vim/undodir
-set clipboard+=unnamed
+" Set the clipboard as the main register
+set clipboard+=unnamed 
  
 
 """""""""""""""""""""""""""""""""""""""
@@ -145,6 +147,19 @@ nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
 nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
 nnoremap <leader>cr :CocRestart
 
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 """""""""""""""""""""""""""""""""""""""
 " Rust
