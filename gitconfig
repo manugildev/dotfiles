@@ -1,0 +1,19 @@
+[user]
+	email = manugildev@gmail.com
+	name = Manuel Gil
+
+[credential]
+	helper = store
+
+[core]
+	editor = nvim
+
+[diff]
+	tool = vimdiff
+
+[difftool]
+	prompt = false
+
+[alias]
+	d = difftool
+

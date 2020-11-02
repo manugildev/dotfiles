@@ -11,8 +11,7 @@
         - ~/.config/regolith/i3
         - ~/.config/nvim/config
 - link:
-    ~/.bashrc: bashrc
-    ~/.zshrc: zshrc
+    ~/.profile: profile
     ~/.config/nvim/init.vim: config/nvim/init.vim
     ~/.config/nvim/config/keybindings.vim: config/nvim/config/keybindings.vim
     ~/.config/nvim/config/plugins.vim: config/nvim/config/plugins.vim
