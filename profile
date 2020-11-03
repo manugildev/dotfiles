@@ -4,9 +4,6 @@
 # see /usr/share/doc/bash/examples/startup-files for examples.
 # the files are located in the bash-doc package.
 
-# Execute ZSH
-exec zsh
-
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
@@ -30,4 +27,3 @@ export MYVIMRC=~/.config/nvim/init.vim
 
 # Rust Lang Support
 source ~/.cargo/env
-export PATH="$HOME/.cargo/bin:$PATH"

@@ -1,4 +1,3 @@
-" List of configuration files
 let configs = [
 \ 'keybindings.vim',
 \ 'plugins.vim'
@@ -19,7 +18,11 @@ filetype off
 syntax on
 set nocompatible
 colorscheme material-monokai
-set termguicolors
+if exists('+termguicolors')
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 set background=dark
 set relativenumber
 set number
@@ -47,7 +50,8 @@ set undofile
 set undodir=~/.vim/undodir
 " Set the clipboard as the main register
 set clipboard+=unnamed 
- 
+" Enable mouse support
+set mouse=a
 
 """""""""""""""""""""""""""""""""""""""
 " LightVim 
@@ -76,7 +80,20 @@ let g:fzf_colors = { 'fg':      ['fg', 'Normal'],
                    \ }
 let g:fzf_layout = {'window' : {'width' : 0.8, 'height' : 0.8}}
 let $FZF_DEFAULT_OPTS = '--reverse'
- 
+command! -bang -nargs=* Rg
+      \ call fzf#vim#grep(
+      \   'rg --column --line-number --no-heading --color=never --ignore-case '.shellescape(<q-args>), 1,
+      \   <bang>0 ? fzf#vim#with_preview('up:60%')
+      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+      \   <bang>0)
+
+augroup fzf
+  autocmd!
+  autocmd! FileType fzf
+  autocmd  FileType fzf set laststatus=0 noshowmode noruler
+    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+augroup END
+
 
 """""""""""""""""""""""""""""""""""""""
 " NerdTree

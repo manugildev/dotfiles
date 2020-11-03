@@ -7,6 +7,8 @@ let mapleader = " "
 imap jk <ESC>l
 map E $
 map B 0
+" Unmap CTRL+T to avoid Tmux ghosting
+nnoremap <C-T> <Nop>
 " Use ESC to exit remove highlighted words
 nnoremap <silent> <ESC> :noh<CR>
 " Shortcuts for resizing pannels
@@ -36,8 +38,8 @@ nnoremap <leader>w :w<CR>
 nmap ss :split<Return><C-w>h
 nmap sv :vsplit<Return><C-w>l
 
-" Navwigate windows
-nmap <Space> <C-w>w
+" Navigate windows
+" nmap <Space> <C-w>w
 map s<left> <C-w>h
 map s<up> <C-w>j
 map s<down> <C-w>k
@@ -51,15 +53,15 @@ map sl <C-w>l
 """""""""""""""""""""""""""""""""""""""
 " FZF
 """""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <leader>p :Files<CR>
-nnoremap <silent> <leader>f :Rg<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
-
+tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 if has("nvim")
   au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
   au FileType fzf tunmap <buffer> <Esc>
 endif
 
+nnoremap <silent> <leader>p :Files<CR>
+nnoremap <silent> <leader>f :Rg<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
 
 """""""""""""""""""""""""""""""""""""""
 " NerdTree

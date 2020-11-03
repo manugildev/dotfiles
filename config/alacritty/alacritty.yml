@@ -12,7 +12,7 @@ colors:
 
   # Normal colors
   normal:
-    black:   '0x121212'
+    black:   '0x080B10'
     red:     '0xfa2573'
     # green:   '0x98e123' # Correct Molokai colour
     green:   '0x9cff00' # Better looking colour
