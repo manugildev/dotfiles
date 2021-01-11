@@ -17,6 +17,7 @@
     ~/.config/nvim/init.vim: config/nvim/init.vim
     ~/.config/nvim/config/keybindings.vim: config/nvim/config/keybindings.vim
     ~/.config/nvim/config/plugins.vim: config/nvim/config/plugins.vim
+    ~/.config/nvim/config/coc-settings.json: config/nvim/config/coc-settings.json
     ~/.config/alacritty/alacritty.yml: config/alacritty/alacritty.yml
     ~/.config/regolith/Xresources: config/regolith/Xresources
     ~/.Xresources-regolith: Xresources-regolith
