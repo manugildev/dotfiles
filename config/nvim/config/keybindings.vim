@@ -1,14 +1,14 @@
 """""""""""""""""""""""""""""""""""""""
 " KeyBindings
 """""""""""""""""""""""""""""""""""""""
-nnoremap <space> <Nop>
+nnoremap <space> <NOP>
 let mapleader = " "
  
 imap jk <ESC>l
 map E $
 map B 0
 " Unmap CTRL+T to avoid Tmux ghosting
-nnoremap <C-T> <Nop>
+nnoremap <C-T> <NOP>
 " Use ESC to exit remove highlighted words
 nnoremap <silent> <ESC> :noh<CR>
 " Shortcuts for resizing pannels
@@ -16,10 +16,14 @@ nnoremap <silent> <leader>+ :exe "resize " . (winheight(0) + 10)<CR>
 nnoremap <silent> <leader>_ :exe "resize " . (winheight(0) - 10)<CR>
 nnoremap <silent> <leader>> :exe "vertical resize " . (winwidth(0) + 10)<CR>
 nnoremap <silent> <leader>< :exe "vertical resize " . (winwidth(0) - 10)<CR>
- 
+" Switch between two files
+nnoremap <leader><leader> <C-^>
+" <leader>, shows/hides hidden characters
+nnoremap <leader>, :set invlist<CR>
+
 " Quickly open/reload vimrc
-nnoremap <leader>ev :vsp $MYVIMRC<CR>  
-nnoremap <leader>sv :source $MYVIMRC<CR>  
+nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
  
 " Avoid common shift-pressing errors
 command! Q q
@@ -30,6 +34,10 @@ command! W w
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 
+" Viw Highlight Group under the current cursor
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+    \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+    \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 """""""""""""""""""""""""""""""""""""""
 " Windows
@@ -72,7 +80,7 @@ nnoremap <leader>e :NERDTreeToggle<CR>
 " Coc
 """""""""""""""""""""""""""""""""""""""
 " GoTo code navigation.
-nnoremap <leader>gd <Plug>(coc-definition)
+nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gy <Plug>(coc-type-definition)
 nmap <leader>gi <Plug>(coc-implementation)
 nmap <leader>gr <Plug>(coc-references)
@@ -84,7 +92,7 @@ nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
 nnoremap <leader>cr :CocRestart
 
 " AutoComplete
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -98,3 +106,9 @@ inoremap <silent><expr> <Tab>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+"""""""""""""""""""""""""""""""""""""""
+" Snippets
+"""""""""""""""""""""""""""""""""""""""
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
