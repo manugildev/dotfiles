@@ -1,0 +1,1 @@
+/Users/manuel.gil/.config/tmux/start_session.sh
