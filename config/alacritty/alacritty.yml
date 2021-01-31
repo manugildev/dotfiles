@@ -1,49 +1,55 @@
 # Colors (Molokai)
 colors:
-  # Default colors
-  primary:
-    background: '0x0A0E14'
-    foreground: '0xeaeaea'
+    # Default colors
+    primary:
+        background: '0x0A0E14'
+        foreground: '0xeaeaea'
 
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text:   '0x000000'
-    cursor: '0xffffff'
+    # Colors the cursor will use if `custom_cursor_colors` is true
+    cursor:
+        text:   '0x000000'
+        cursor: '0xffffff'
 
-  # Normal colors
-  normal:
-    black:   '0x080B10'
-    red:     '0xfa2573'
-    # green:   '0x98e123' # Correct Molokai colour
-    green:   '0x9cff00' # Better looking colour
-    yellow:  '0xdfd460'
-    blue:    '0x1080d0'
-    magenta: '0x8700ff'
-    cyan:    '0x43a8d0'
-    white:   '0xbbbbbb'
+    # Normal colors
+    normal:
+        black:   '0x080B10'
+        red:     '0xfa2573'
+        # green:   '0x98e123' # Correct Molokai colour
+        green:   '0x9cff00' # Better looking colour
+        yellow:  '0xdfd460'
+        blue:    '0x1080d0'
+        magenta: '0x8700ff'
+        cyan:    '0x43a8d0'
+        white:   '0xbbbbbb'
 
-  # Bright colors
-  bright:
-    black:   '0x555555'
-    red:     '0xf6669d'
-    green:   '0xb1e05f'
-    yellow:  '0xfff26d'
-    blue:    '0x00afff'
-    magenta: '0xaf87ff'
-    cyan:    '0x51ceff'
-    white:   '0xffffff'
+        # Bright colors
+    bright:
+        black:   '0x555555'
+        red:     '0xf6669d'
+        green:   '0xb1e05f'
+        yellow:  '0xfff26d'
+        blue:    '0x00afff'
+        magenta: '0xaf87ff'
+        cyan:    '0x51ceff'
+        white:   '0xffffff'
 
 # Window Settings
 window:
-  padding:
-    x: 10
-    y: 5
-  dynamic_padding: true
+    padding:
+        x: 4
+        y: 2
+    dynamic_padding: true
 
 
 font:
     # The size to use.
     size: 12
+
+    # Offset is the extra space around each character. `offset.y` can be thought of
+    # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
+    offset:
+        x: 0
+        y: 1
 #   # The normal (roman) font face to use.
 #   normal:
 #     family: Ubuntu Mono derivative Powerline

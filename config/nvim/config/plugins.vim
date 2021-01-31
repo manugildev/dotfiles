@@ -27,7 +27,6 @@ call plug#begin('~/.config/nvim/bundle/')
     " Custom
     Plug 'manugildev/vim-material-monokai' " Theme
     Plug 'manugildev/vim-rust-syntax-ext'  " Rust proper syntax
-
 call plug#end()
 filetype plugin indent on
  

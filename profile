@@ -27,3 +27,12 @@ export MYVIMRC=~/.config/nvim/init.vim
 
 # Rust Lang Support
 source ~/.cargo/env
+
+# Start IDE session
+alias start-rust-ide='~/.config/tmux/start_session.sh'
+
+# Python
+alias python='python3.8'
+
+# FZF
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'

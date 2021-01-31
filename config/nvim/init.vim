@@ -63,9 +63,12 @@ set clipboard+=unnamed
 " Enable mouse support
 set mouse=a
 let g:smoothie_base_speed=38
+" Visualize line breaks
+set list listchars=tab:>\ ,trail:-,eol:$
+
 
 """""""""""""""""""""""""""""""""""""""
-" LightVim 
+" LightVim
 """""""""""""""""""""""""""""""""""""""
 set noshowmode
 let g:lightline = {
@@ -109,6 +112,8 @@ let g:fzf_colors = { 'fg':      ['fg', 'Normal'],
                    \ 'header':  ['fg', 'Comment']
                    \ }
 
+let $FZF_DEFAULT_COMMAND = 'rg --files --smart-case'
+
 let g:fzf_layout = { 'down': '~20%' }
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
@@ -122,9 +127,9 @@ function! s:list_cmd()
   return base == '.' ? 'fd --type file --follow' : printf('fd --type file --follow | proximity-sort %s', shellescape(expand('%')))
 endfunction
 
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, {'source': s:list_cmd(),
-  \                               'options': '--tiebreak=index'}, <bang>0)
+"command! -bang -nargs=? -complete=dir Files
+"  \ call fzf#vim#files(<q-args>, {'source': s:list_cmd(),
+"  \                               'options': '--tiebreak=index'}, <bang>0)
 
 " Hide fzf status line
 autocmd! FileType fzf set laststatus=0 noshowmode noruler
