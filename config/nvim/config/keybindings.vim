@@ -3,10 +3,12 @@
 """""""""""""""""""""""""""""""""""""""
 nnoremap <space> <NOP>
 let mapleader = " "
- 
+
 imap jk <ESC>l
-map E $
-map B 0
+nnoremap E $
+nnoremap B 0
+vnoremap E $
+vnoremap B 0
 " Unmap CTRL+T to avoid Tmux ghosting
 nnoremap <C-T> <NOP>
 " Use ESC to exit remove highlighted words
@@ -20,24 +22,22 @@ nnoremap <silent> <leader>< :exe "vertical resize " . (winwidth(0) - 10)<CR>
 nnoremap <leader><leader> <C-^>
 " <leader>, shows/hides hidden characters
 nnoremap <leader>, :set invlist<CR>
-
 " Quickly open/reload vimrc
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
- 
-" Avoid common shift-pressing errors
-command! Q q
-command! WQ wq
-command! W w
-
 " Faster close and save of files with leader key
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
-
+" Open new file adjacent to current file
+nnoremap <leader>o :e <C-R>=expand("%:p:h") . "/" <CR>
 " Viw Highlight Group under the current cursor
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
     \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
     \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+" Avoid common shift-pressing errors
+command! Q q
+command! WQ wq
+command! W w
 
 """""""""""""""""""""""""""""""""""""""
 " Windows
@@ -56,7 +56,6 @@ map sh <C-w>h
 map sj <C-w>j
 map sk <C-w>k
 map sl <C-w>l
-
 
 """""""""""""""""""""""""""""""""""""""
 " FZF
