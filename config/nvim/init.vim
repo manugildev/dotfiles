@@ -44,7 +44,7 @@ set scrolloff=999
 " set cursorline
 " set lazyredraw
 set wildmenu
-set colorcolumn=80
+set colorcolumn=88
 set nowrap
 " Make the shell work when nvim.app is opened
 let &shell='/bin/zsh -i --login'
@@ -148,7 +148,7 @@ let g:NERDTreeChDirMode = 2 " Change root dir to current dir
 """""""""""""""""""""""""""""""""""""""
 " Coc
 """""""""""""""""""""""""""""""""""""""
-let g:coc_node_path='/usr/bin/node'
+let g:coc_node_path='/usr/local/bin/node'
 
 """""""""""""""""""""""""""""""""""""""
 " Rust

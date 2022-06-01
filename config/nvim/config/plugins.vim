@@ -17,8 +17,8 @@ call plug#begin('~/.config/nvim/bundle/')
     Plug 'cespare/vim-toml'
 
     " Snippets
-    Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
+    "Plug 'SirVer/ultisnips'
+    "Plug 'honza/vim-snippets'
 
     " Fuzzy Finder
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
