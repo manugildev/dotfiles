@@ -2,45 +2,46 @@
 colors:
     # Default colors
     primary:
-        background: '0x0A0E14'
-        foreground: '0xeaeaea'
+        background: '#0A0E14'
+        foreground: '#EAEAEA'
 
     # Colors the cursor will use if `custom_cursor_colors` is true
     cursor:
-        text:   '0x000000'
-        cursor: '0xffffff'
+        text:   '#000000'
+        cursor: '#FFFFFF'
 
     # Normal colors
     normal:
-        black:   '0x080B10'
-        red:     '0xfa2573'
-        # green:   '0x98e123' # Correct Molokai colour
-        green:   '0x9cff00' # Better looking colour
-        yellow:  '0xdfd460'
-        blue:    '0x1080d0'
-        magenta: '0x8700ff'
-        cyan:    '0x43a8d0'
-        white:   '0xbbbbbb'
+        black:   '#080B10'
+        red:     '#FA2573'
+        # green:   '#98e123' # Correct Molokai colour
+        green:   '#9CFF00' # Better looking colour
+        yellow:  '#DFD460'
+        blue:    '#1080D0'
+        magenta: '#8700FF'
+        cyan:    '#43A8D0'
+        white:   '#BBBBBB'
 
         # Bright colors
     bright:
-        black:   '0x555555'
-        red:     '0xf6669d'
-        green:   '0xb1e05f'
-        yellow:  '0xfff26d'
-        blue:    '0x00afff'
-        magenta: '0xaf87ff'
-        cyan:    '0x51ceff'
-        white:   '0xffffff'
+        black:   '#555555'
+        red:     '#F6669D'
+        green:   '#B1E05F'
+        yellow:  '#FFF26D'
+        blue:    '#00AFFF'
+        magenta: '#AF87FF'
+        cyan:    '#51CEFF'
+        white:   '#FFFFFF'
 
 # Window Settings
 window:
     padding:
-        x: 4
-        y: 2
-    dynamic_padding: true
+        x: 8
+        y: 4
+    dynamic_padding: false
+    decorations: ButtonLess
 
-
+# Font Settings
 font:
     # The size to use.
     size: 12
