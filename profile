@@ -36,3 +36,9 @@ alias python='python3.8'
 
 # FZF
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+. "$HOME/.cargo/env"
+
+
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+
+export PATH="/Users/manuelgil/.local/share/solana/install/active_release/bin:$PATH"

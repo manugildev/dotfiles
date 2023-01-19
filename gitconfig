@@ -1,5 +1,5 @@
 [user]
-	email = manugildev@gmail.com
+	email = manuel.gil@unity3d.com
 	name = Manuel Gil
 
 [credential]
@@ -7,13 +7,38 @@
 
 [core]
 	editor = nvim
+	excludesfile = /Users/manuelgil/.gitignore_global
 
 [diff]
-	tool = vimdiff
+	tool = bc
 
 [difftool]
-	prompt = false
+	prompt = true
 
 [alias]
 	d = difftool
 
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[oh-my-zsh]
+	hide-dirty = 1
+[merge]
+	tool = bc
+[mergetool "bc"]
+	trustExitCode = true
+[status]
+	showUntrackedFiles = all
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /private/var/folders/3t/0r5fh2hj3216pznw7292gc1h0000gp/T/AppTranslocation/176F6C3B-2D3D-4475-B9C9-94208CF342AF/d/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[push]
+	autoSetupRemote = true
+	autoSetupRemote = false
+	autoSetupRemote = true
+	autoSetupRemote = false

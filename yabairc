@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
+sudo yabai --load-sa
+#yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # the scripting-addition must be loaded manually if
 # you are running yabai on macOS Big Sur. Uncomment
@@ -17,11 +19,11 @@
 #!/usr/bin/env sh
 
 # bar settings
-yabai -m config top_padding 0
+yabai -m config top_padding 5
 
 # global settings
 yabai -m config mouse_follows_focus          off
-yabai -m config focus_follows_mouse          autoraise
+yabai -m config focus_follows_mouse          autorise
 
 yabai -m config window_placement             second_child
 yabai -m config window_topmost               off
@@ -45,7 +47,7 @@ yabai -m config layout                       bsp
 yabai -m config bottom_padding               5
 yabai -m config left_padding                 5
 yabai -m config right_padding                5
-yabai -m config window_gap                   5
+yabai -m config window_gap                   0
 
 # border settings
 yabai -m config window_border on
@@ -56,9 +58,22 @@ yabai -m config normal_window_border_color 0xff002b36
 # float system preferences
 yabai -m rule --add app='^System Information$' manage=off
 yabai -m rule --add app='^System Preferences$' manage=off
+yabai -m rule --add app='^JetBrains Toolbox$' manage=off
 yabai -m rule --add title='Preferences$' manage=off
+yabai -m rule --add app='^Surfshark$' manage=off
 
 # float settings windows
 yabai -m rule --add title='Settings$' manage=off
+
+yabai -m rule --add app="^Alacritty$" space=1
+
+yabai -m rule --add app="^Slack$" space=2
+yabai -m rule --add app="^Telegram$" space=2
+yabai -m rule --add app="^WhatsApp$" space=2
+
+yabai -m rule --add app="^Chrome$" space=3
+yabai -m rule --add app="^Google Chrome$" space=3
+yabai -m rule --add app="^Brave$" space=3
+yabai -m rule --add app="^Brave Browser$" space=3
 
 echo "yabai configuration loaded.."

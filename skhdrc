@@ -1,118 +1,129 @@
 # change focus
-alt - h : yabai -m window --focus west
-alt - j : yabai -m window --focus south
-alt - k : yabai -m window --focus north
-alt - l : yabai -m window --focus east
+lalt - h : yabai -m window --focus west
+lalt - j : yabai -m window --focus south
+lalt - k : yabai -m window --focus north
+lalt - l : yabai -m window --focus east
 
 # shift window in current workspace
-alt + shift - h : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
-alt + shift - j : yabai -m window --swap south || $(yabai -m window --display south; yabai -m display --focus south)
-alt + shift - k : yabai -m window --swap north || $(yabai -m window --display north; yabai -m display --focus north)
-alt + shift - l : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
+lalt + shift - h : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
+lalt + shift - j : yabai -m window --swap south || $(yabai -m window --display south; yabai -m display --focus south)
+lalt + shift - k : yabai -m window --swap north || $(yabai -m window --display north; yabai -m display --focus north)
+lalt + shift - l : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
 
 # set insertion point in focused container
-alt + ctrl - h : yabai -m window --insert west
-alt + ctrl - j : yabai -m window --insert south
-alt + ctrl - k : yabai -m window --insert north
-alt + ctrl - l : yabai -m window --insert east
+lalt + ctrl - h : yabai -m window --insert west
+lalt + ctrl - j : yabai -m window --insert south
+lalt + ctrl - k : yabai -m window --insert north
+lalt + ctrl - l : yabai -m window --insert east
 
 # go back to previous workspace (kind of like back_and_forth in i3)
-alt - b : yabai -m space --focus recent
+lalt - b : yabai -m space --focus recent
 
 # move focused window to previous workspace
-alt + shift - b : yabai -m window --space recent; \
+lalt + shift - b : yabai -m window --space recent; \
                   yabai -m space --focus recent
 
 # move to different workspaces
-alt - 1 : yabai -m space --focus 1
-alt - 2 : yabai -m space --focus 2
-alt - 3 : yabai -m space --focus 3
-alt - 4 : yabai -m space --focus 4
-alt - 5 : yabai -m space --focus 5
-alt - 6 : yabai -m space --focus 6
-alt - 7 : yabai -m space --focus 7
-alt - 8 : yabai -m space --focus 8
-alt - 9 : yabai -m space --focus 9
+lalt - 1 : yabai -m space --focus 1
+lalt - 2 : yabai -m space --focus 2
+lalt - 3 : yabai -m space --focus 3
+lalt - 4 : yabai -m space --focus 4
+lalt - 5 : yabai -m space --focus 5
+lalt - 6 : yabai -m space --focus 6
+lalt - 7 : yabai -m space --focus 7
+lalt - 8 : yabai -m space --focus 8
+lalt - 9 : yabai -m space --focus 9
 
 # move focused window to next/prev workspace
-alt + shift - 1 : yabai -m window --space 1 || ( \
+lalt + shift - 1 : yabai -m window --space 1 && yabai -m space --focus 1 || ( \
                     yabai -m space --create && \
                     index="$(yabai -m query --spaces --display | jq -r 'map(select(.["is-native-fullscreen"] == false))[-1].index')" && \
-                    yabai -m window --space "${index}" \
+                    yabai -m window --space "${index}" && \
+                    yabai -m space --focus "${index}" \
                   )
-alt + shift - 2 : yabai -m window --space 2 || ( \
+lalt + shift - 2 : yabai -m window --space 2 && yabai -m space --focus 2 || ( \
                     yabai -m space --create && \
                     index="$(yabai -m query --spaces --display | jq -r 'map(select(.["is-native-fullscreen"] == false))[-1].index')" && \
-                    yabai -m window --space "${index}" \
+                    yabai -m window --space "${index}" && \
+                    yabai -m space --focus "${index}" \
                   )
-alt + shift - 3 : yabai -m window --space 3 || ( \
+lalt + shift - 3 : yabai -m window --space 3 && yabai -m space --focus 3 || ( \
                     yabai -m space --create && \
                     index="$(yabai -m query --spaces --display | jq -r 'map(select(.["is-native-fullscreen"] == false))[-1].index')" && \
-                    yabai -m window --space "${index}" \
+                    yabai -m window --space "${index}" && \
+                    yabai -m space --focus "${index}" \
                   )
-alt + shift - 4 : yabai -m window --space 4 || ( \
+lalt + shift - 4 : yabai -m window --space 4 && yabai -m space --focus 4 || ( \
                     yabai -m space --create && \
                     index="$(yabai -m query --spaces --display | jq -r 'map(select(.["is-native-fullscreen"] == false))[-1].index')" && \
-                    yabai -m window --space "${index}" \
+                    yabai -m window --space "${index}" && \
+                    yabai -m space --focus "${index}" \
                   )
-alt + shift - 5 : yabai -m window --space 5 || ( \
+lalt + shift - 5 : yabai -m window --space 5 && yabai -m space --focus 5 || ( \
                     yabai -m space --create && \
                     index="$(yabai -m query --spaces --display | jq -r 'map(select(.["is-native-fullscreen"] == false))[-1].index')" && \
-                    yabai -m window --space "${index}" \
+                    yabai -m window --space "${index}" && \
+                    yabai -m space --focus "${index}" \
                   )
-alt + shift - 6 : yabai -m window --space 6 || ( \
+lalt + shift - 6 : yabai -m window --space 6 && yabai -m space --focus 6 || ( \
                     yabai -m space --create && \
                     index="$(yabai -m query --spaces --display | jq -r 'map(select(.["is-native-fullscreen"] == false))[-1].index')" && \
-                    yabai -m window --space "${index}" \
+                    yabai -m window --space "${index}" && \
+                    yabai -m space --focus "${index}" \
                   )
-alt + shift - 7 : yabai -m window --space 7 || ( \
+lalt + shift - 7 : yabai -m window --space 7 && yabai -m space --focus 7 || ( \
                     yabai -m space --create && \
                     index="$(yabai -m query --spaces --display | jq -r 'map(select(.["is-native-fullscreen"] == false))[-1].index')" && \
-                    yabai -m window --space "${index}" \
+                    yabai -m window --space "${index}" && \
+                    yabai -m space --focus "${index}" \
                   )
-alt + shift - 8 : yabai -m window --space 8 || ( \
+lalt + shift - 8 : yabai -m window --space 8 && yabai -m space --focus 8 || ( \
                     yabai -m space --create && \
                     index="$(yabai -m query --spaces --display | jq -r 'map(select(.["is-native-fullscreen"] == false))[-1].index')" && \
-                    yabai -m window --space "${index}" \
+                    yabai -m window --space "${index}" && \
+                    yabai -m space --focus "${index}" \
                   )
-alt + shift - 9 : yabai -m window --space 9 || ( \
+lalt + shift - 9 : yabai -m window --space 9 && yabai -m space --focus 9 || ( \
                     yabai -m space --create && \
                     index="$(yabai -m query --spaces --display | jq -r 'map(select(.["is-native-fullscreen"] == false))[-1].index')" && \
-                    yabai -m window --space "${index}" \
+                    yabai -m window --space "${index}" && \
+                    yabai -m space --focus "${index}" \
                   )
 
 
 # # mirror tree y-axis
-alt + shift - y : yabai -m space --mirror y-axis
+lalt + shift - y : yabai -m space --mirror y-axis
 
 # # mirror tree x-axis
-alt + shift - x : yabai -m space --mirror x-axis
+lalt + shift - x : yabai -m space --mirror x-axis
 
 # balance size of windows
-alt + shift - 0 : yabai -m space --balance
+lalt + shift - 0 : yabai -m space --balance
 
 
 # cycle not working
 # cycle through stack windows
-# alt - p : yabai -m window --focus stack.next || yabai -m window --focus south
-# alt - n : yabai -m window --focus stack.prev || yabai -m window --focus north
+# lalt - p : yabai -m window --focus stack.next || yabai -m window --focus south
+# lalt - n : yabai -m window --focus stack.prev || yabai -m window --focus north
 
 
 # toggle window floating
-alt - o : yabai -m window --toggle float
+ralt - o : yabai -m window --toggle float
 
 # toggle window fullscreen
-alt - f : yabai -m window --toggle zoom-fullscreen
+lalt - f : yabai -m window --toggle zoom-fullscreen
 
 # close focused window
-alt - w : yabai -m window --close
+lalt - w : yabai -m window --close
+
+lalt - m : yabai -m config focus_follows_mouse autofocus
+lalt + shift - m : yabai -m config focus_follows_mouse off
 
 # create new workspace
 # fous not working
-alt + shift - n : yabai -m space --create && \
+lalt + shift - n : yabai -m space --create && \
         index="$(yabai -m query --spaces --display | jq -r 'map(select(.["is-native-fullscreen"] == false))[-1].index')" && \
         yabai -m space --focus "${index}"
 
-alt + shift - d : index="$(yabai -m query --spaces --display | jq -r 'map(select(.["has-focus"] == true))[0].index')" && \
+lalt + shift - d : index="$(yabai -m query --spaces --display | jq -r 'map(select(.["has-focus"] == true))[0].index')" && \
         yabai -m space --destroy "${index}"
-
