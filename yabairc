@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
-#yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # the scripting-addition must be loaded manually if
 # you are running yabai on macOS Big Sur. Uncomment
@@ -19,7 +19,7 @@ sudo yabai --load-sa
 #!/usr/bin/env sh
 
 # bar settings
-yabai -m config top_padding 5
+yabai -m config top_padding 0
 
 # global settings
 yabai -m config mouse_follows_focus          off
@@ -44,23 +44,25 @@ yabai -m config mouse_action2                resize
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config bottom_padding               5
-yabai -m config left_padding                 5
-yabai -m config right_padding                5
+yabai -m config bottom_padding               0
+yabai -m config left_padding                 0
+yabai -m config right_padding                0
 yabai -m config window_gap                   0
 
 # border settings
 yabai -m config window_border on
-yabai -m config window_border_width 3
-yabai -m config active_window_border_color 0xff268bd2
-yabai -m config normal_window_border_color 0xff002b36
+yabai -m config window_border_width 1
+yabai -m config active_window_border_color 0xFFD5FF80
+yabai -m config normal_window_border_color 0xFF242936
 
 # float system preferences
 yabai -m rule --add app='^System Information$' manage=off
 yabai -m rule --add app='^System Preferences$' manage=off
+yabai -m rule --add app='^System Settings$' manage=off
 yabai -m rule --add app='^JetBrains Toolbox$' manage=off
 yabai -m rule --add title='Preferences$' manage=off
 yabai -m rule --add app='^Surfshark$' manage=off
+yabai -m rule --add app="^Archive Utility$" manage=off 
 
 # float settings windows
 yabai -m rule --add title='Settings$' manage=off
@@ -75,5 +77,7 @@ yabai -m rule --add app="^Chrome$" space=3
 yabai -m rule --add app="^Google Chrome$" space=3
 yabai -m rule --add app="^Brave$" space=3
 yabai -m rule --add app="^Brave Browser$" space=3
+
+yabai -m rule --add app="Unity" space=4
 
 echo "yabai configuration loaded.."

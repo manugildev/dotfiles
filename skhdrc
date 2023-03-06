@@ -1,3 +1,6 @@
+# restart yabai launch agent / refresh
+ctrl + lalt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
 # change focus
 lalt - h : yabai -m window --focus west
 lalt - j : yabai -m window --focus south
@@ -100,12 +103,10 @@ lalt + shift - x : yabai -m space --mirror x-axis
 # balance size of windows
 lalt + shift - 0 : yabai -m space --balance
 
-
 # cycle not working
 # cycle through stack windows
 # lalt - p : yabai -m window --focus stack.next || yabai -m window --focus south
 # lalt - n : yabai -m window --focus stack.prev || yabai -m window --focus north
-
 
 # toggle window floating
 ralt - o : yabai -m window --toggle float
@@ -120,10 +121,9 @@ lalt - m : yabai -m config focus_follows_mouse autofocus
 lalt + shift - m : yabai -m config focus_follows_mouse off
 
 # create new workspace
-# fous not working
 lalt + shift - n : yabai -m space --create && \
         index="$(yabai -m query --spaces --display | jq -r 'map(select(.["is-native-fullscreen"] == false))[-1].index')" && \
         yabai -m space --focus "${index}"
-
-lalt + shift - d : index="$(yabai -m query --spaces --display | jq -r 'map(select(.["has-focus"] == true))[0].index')" && \
-        yabai -m space --destroy "${index}"
+# destroy focused workspace and focus previou
+lalt + shift - d : index="$(yabai -m query --spaces --display | jq -r 'map(select(.["has-focus"] == true))[0].index')" && prev_index=$(expr $index - 1) && \
+        yabai -m space --focus "${prev_index}" --destroy "${index}" 
