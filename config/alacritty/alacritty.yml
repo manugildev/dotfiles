@@ -14,8 +14,7 @@ colors:
     normal:
         black:   '#080B10'
         red:     '#FA2573'
-        # green:   '#98e123' # Correct Molokai colour
-        green:   '#9CFF00' # Better looking colour
+        green:   '#9CFF00'
         yellow:  '#DFD460'
         blue:    '#1080D0'
         magenta: '#8700FF'
@@ -49,14 +48,14 @@ font:
       y: 1
 
   normal:
-    family: Ubuntu Mono
+    family: UbuntuMono Nerd Font Mono
     style: Regular
 
   bold:
-    family: Ubuntu Mono
-    style: Regular
+    family: UbuntuMono Nerd Font Mono
+    style: Bold
 
   italic:
-    family: Ubuntu Mono
+    family: UbuntuMono Nerd Font Mono
     style:  Italic
 
