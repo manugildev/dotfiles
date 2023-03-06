@@ -21,13 +21,13 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# General Aliases
+alias start-rust-ide="~/.config/tmux/start_session.sh"
+alias python="python3.8"
 
-# Rust Lang Support
-source ~/.cargo/env
-
-alias start-rust-ide='~/.config/tmux/start_session.sh'
-alias python='python3.8'
-
-# FZF
+# General Exports 
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden"
 export MYVIMRC="~/.config/nvim/init.vim"
+
+# Rust Lang Support
+export PATH="$PATH:$HOME/.cargo/bin"
