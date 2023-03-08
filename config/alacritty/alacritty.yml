@@ -38,7 +38,7 @@ window:
         x: 8
         y: 4
     dynamic_padding: false
-    decorations: ButtonLess
+    decorations: full
 
 # Font Settings
 font:
@@ -48,14 +48,14 @@ font:
       y: 1
 
   normal:
-    family: UbuntuMono Nerd Font Mono
+    family: UbuntuMono NF
     style: Regular
 
   bold:
-    family: UbuntuMono Nerd Font Mono
+    family: UbuntuMono NF
     style: Bold
 
   italic:
-    family: UbuntuMono Nerd Font Mono
+    family: UbuntuMono NF
     style:  Italic
 
