@@ -25,7 +25,7 @@ nnoremap <leader>, :set invlist<CR>
 " Quickly open/reload vimrc
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>kv :vsp $HOME/.config/nvim/config/keybindings.vim<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>sc :source $MYVIMRC<CR>
 " Faster close and save of files with leader key
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
