@@ -22,6 +22,17 @@ return require('packer').startup(function(use)
 --            vim.cmd('colorscheme rose-pine')
 --        end
 --    })
+--
+--    use({
+--      "loctvl842/monokai-pro.nvim",
+--      config = function()
+--        require("monokai-pro").setup({
+--            transparent_background = true,
+--            filter = 'machine',
+--        })
+--        vim.cmd([[colorscheme monokai-pro]])
+--      end
+--    })
     use({
         'navarasu/onedark.nvim',
         as = 'onedark',
@@ -41,6 +52,7 @@ return require('packer').startup(function(use)
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
+    use('theprimeagen/harpoon')
     -- use({ 'nvim-treesitter/playground' })
     use({
         'VonHeikemen/lsp-zero.nvim',

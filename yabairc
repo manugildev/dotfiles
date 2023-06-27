@@ -1,29 +1,14 @@
 #!/usr/bin/env sh
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
-
-# the scripting-addition must be loaded manually if
-# you are running yabai on macOS Big Sur. Uncomment
-# the following line to have the injection performed
-# when the config is executed during startup.
-#
-# for this to work you must configure sudo such that
-# it will be able to run the command without password
-#
-# see this wiki page for information:
-#  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)
-#
-# sudo yabai --load-sa
-# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-
-#!/usr/bin/env sh
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+yabai -m config debug_output on
 
 # bar settings
 yabai -m config top_padding 0
 
 # global settings
 yabai -m config mouse_follows_focus          off
-yabai -m config focus_follows_mouse          autorise
+yabai -m config focus_follows_mouse          autoraise
 
 yabai -m config window_placement             second_child
 yabai -m config window_topmost               off
@@ -60,24 +45,36 @@ yabai -m rule --add app='^System Information$' manage=off
 yabai -m rule --add app='^System Preferences$' manage=off
 yabai -m rule --add app='^System Settings$' manage=off
 yabai -m rule --add app='^JetBrains Toolbox$' manage=off
-yabai -m rule --add title='Preferences$' manage=off
 yabai -m rule --add app='^Surfshark$' manage=off
 yabai -m rule --add app="^Archive Utility$" manage=off 
+yabai -m rule --add title='Preferences$' manage=off
 
 # float settings windows
 yabai -m rule --add title='Settings$' manage=off
 
-yabai -m rule --add app="^Alacritty$" space=1
+# send windows to spaces
+yabai -m rule --add app='^Alacritty$' space=1
 
-yabai -m rule --add app="^Slack$" space=2
-yabai -m rule --add app="^Telegram$" space=2
-yabai -m rule --add app="^WhatsApp$" space=2
+#> social
+yabai -m rule --add app='^Slack$' space=2
+yabai -m rule --add app='^Telegram$' space=2
+yabai -m rule --add app='^WhatsApp$' space=2
 
-yabai -m rule --add app="^Chrome$" space=3
-yabai -m rule --add app="^Google Chrome$" space=3
-yabai -m rule --add app="^Brave$" space=3
-yabai -m rule --add app="^Brave Browser$" space=3
+#> internet
+yabai -m rule --add app='^Chrome$' space=3
+yabai -m rule --add app='^Google Chrome$' space=3
+yabai -m rule --add app='^Brave$' space=3
+yabai -m rule --add app='^Brave Browser$' space=3
 
-yabai -m rule --add app="Unity" space=4
+#> code
+multiple_display_setup=$(yabai -m query --displays | jq -r 'length == 2')
+if [ $(yabai -m query --displays | jq -r 'length == 2') != false ];
+    then yabai -m rule --add app='^Code$' display=2;
+else
+    yabai -m rule --add app='^Code$' space=4;
+fi;
+
+#> unity
+yabai -m rule --add app='Unity' space=5
 
 echo "yabai configuration loaded.."

@@ -2,6 +2,11 @@ vim.g.mapleader = " "
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
+-- Move beginning and end of line
+vim.keymap.set("n", "E", "$")
+vim.keymap.set("n", "B", "0")
+vim.keymap.set("n", "J", "mzJ`z")
+
 vim.keymap.set("n", "J", "mzJ`z")
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz") -- Keep cursor in center when moving

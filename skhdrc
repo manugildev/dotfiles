@@ -1,11 +1,11 @@
 # restart yabai launch agent / refresh
-ctrl + lalt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+ctrl + lalt + cmd - r : yabai --restart-service
 
 # change focus
-lalt - h : yabai -m window --focus west
-lalt - j : yabai -m window --focus south
-lalt - k : yabai -m window --focus north
-lalt - l : yabai -m window --focus east
+lalt - h : yabai -m window --focus west || $(yabai -m display --focus west)
+lalt - j : yabai -m window --focus south || $(yabai -m display --focus south)
+lalt - k : yabai -m window --focus north || $(yabai -m display --focus north)
+lalt - l : yabai -m window --focus east || $(yabai -m display --focus east)
 
 # shift window in current workspace
 lalt + shift - h : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
@@ -94,10 +94,10 @@ lalt + shift - 9 : yabai -m window --space 9 && yabai -m space --focus 9 || ( \
                   )
 
 
-# # mirror tree y-axis
+# mirror tree y-axis
 lalt + shift - y : yabai -m space --mirror y-axis
 
-# # mirror tree x-axis
+# mirror tree x-axis
 lalt + shift - x : yabai -m space --mirror x-axis
 
 # balance size of windows
@@ -117,13 +117,18 @@ lalt - f : yabai -m window --toggle zoom-fullscreen
 # close focused window
 lalt - w : yabai -m window --close
 
+# mouse focus
 lalt - m : yabai -m config focus_follows_mouse autofocus
 lalt + shift - m : yabai -m config focus_follows_mouse off
 
-# create new workspace
+# create new workspace and focus it
 lalt + shift - n : yabai -m space --create && \
         index="$(yabai -m query --spaces --display | jq -r 'map(select(.["is-native-fullscreen"] == false))[-1].index')" && \
         yabai -m space --focus "${index}"
-# destroy focused workspace and focus previou
+
+# destroy focused workspace and focus previous
 lalt + shift - d : index="$(yabai -m query --spaces --display | jq -r 'map(select(.["has-focus"] == true))[0].index')" && prev_index=$(expr $index - 1) && \
         yabai -m space --focus "${prev_index}" --destroy "${index}" 
+
+# focus VSCode
+lalt - c : open -a "Visual Studio Code"

@@ -3,6 +3,7 @@
 	name = Manuel Gil
 [credential]
 	helper = store
+	helper = /usr/local/share/gcm-core/git-credential-manager
 [core]
 	editor = nvim
 	excludesfile = $HOME/.gitignore_global
@@ -21,3 +22,11 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[credential "https://dev.azure.com"]
+	useHttpPath = true

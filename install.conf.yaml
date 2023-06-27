@@ -1,6 +1,7 @@
 - defaults:
     link:
       relink: true
+      create: true
 
 - clean: ['~']
 
@@ -9,6 +10,7 @@
         - ~/.config/regolith
         - ~/.config/regolith/i3
         - ~/.config/tmux
+
 - link:
     ~/.profile: profile
     ~/.gitconfig: gitconfig
@@ -16,10 +18,6 @@
     ~/.skhdrc: skhdrc
     ~/.yabairc: yabairc
     ~/.config/nvim: config/nvim/
-#    ~/.config/nvim/init.vim: config/nvim/init.vim
-#    ~/.config/nvim/config/keybindings.vim: config/nvim/config/keybindings.vim
-#    ~/.config/nvim/config/plugins.vim: config/nvim/config/plugins.vim
-#    ~/.config/nvim/coc-settings.json: config/nvim/coc-settings.json
     ~/.config/tmux/start_session.sh: config/tmux/start_session.sh
     ~/.config/alacritty/alacritty.yml: config/alacritty/alacritty.yml
     ~/.config/regolith/Xresources: config/regolith/Xresources
