@@ -118,7 +118,7 @@ lalt - f : yabai -m window --toggle zoom-fullscreen
 lalt - w : yabai -m window --close
 
 # mouse focus
-lalt - m : yabai -m config focus_follows_mouse autofocus
+lalt - m : yabai -m config focus_follows_mouse autoraise
 lalt + shift - m : yabai -m config focus_follows_mouse off
 
 # create new workspace and focus it
