@@ -6,23 +6,25 @@
 - clean: ['~']
 
 - create:
-        - ~/.config/alacritty
+        # - ~/.config/alacritty
         - ~/.config/regolith
         - ~/.config/regolith/i3
         - ~/.config/tmux
+        # - ~/.config/nvim/lua/user
 
 - link:
     ~/.profile: profile
     ~/.gitconfig: gitconfig
-    ~/.tmux.conf: tmux.conf 
     ~/.skhdrc: skhdrc
     ~/.yabairc: yabairc
-    ~/.config/nvim: config/nvim/
-    ~/.config/tmux/start_session.sh: config/tmux/start_session.sh
-    ~/.config/alacritty/alacritty.yml: config/alacritty/alacritty.yml
-    ~/.config/regolith/Xresources: config/regolith/Xresources
     ~/.Xresources-regolith: Xresources-regolith
+    ~/.config/alacritty: config/alacritty
+    ~/.config/nvim/lua/user: config/nvim/lua/user
+    ~/.config/nvim: config/nvim/
+    ~/.config/regolith/Xresources: config/regolith/Xresources
     ~/.config/regolith/i3/config: config/regolith/i3/config
+    ~/.config/tmux/start_session.sh: config/tmux/start_session.sh
+    ~/.config/tmux/tmux.conf: config/tmux/tmux.conf
 #    ~/.config/i3:
 #        path: config/i3/
 #        create: true

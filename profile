@@ -31,3 +31,4 @@ export MYVIMRC="~/.config/nvim/init.vim"
 
 # Rust Lang Support
 export PATH="$PATH:$HOME/.cargo/bin"
+. "$HOME/.cargo/env"
