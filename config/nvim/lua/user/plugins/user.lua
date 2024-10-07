@@ -6,6 +6,12 @@ return {
 		"christoomey/vim-tmux-navigator",
 		lazy = false
 	},
+	{
+		"lukas-reineke/headlines.nvim",
+		lazy = false,
+        dependencies = "nvim-treesitter/nvim-treesitter",
+        config = true,
+	}
 	-- "andweeb/presence.nvim",
 	-- {
 	--   "ray-x/lsp_signature.nvim",

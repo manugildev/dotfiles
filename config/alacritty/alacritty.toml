@@ -1,0 +1,64 @@
+[colors.bright]
+black = "#555555"
+blue = "#00AFFF"
+cyan = "#51CEFF"
+green = "#B1E05F"
+magenta = "#AF87FF"
+red = "#F6669D"
+white = "#FFFFFF"
+yellow = "#FFF26D"
+
+[colors.cursor]
+cursor = "#FFFFFF"
+text = "#000000"
+
+[colors.normal]
+black = "#080B10"
+blue = "#1080D0"
+cyan = "#43A8D0"
+green = "#9CFF00"
+magenta = "#8700FF"
+red = "#FA2573"
+white = "#BBBBBB"
+yellow = "#DFD460"
+
+[colors.primary]
+background = "#0A0E14"
+foreground = "#EAEAEA"
+
+[font]
+size = 15
+
+[font.bold]
+family = "UbuntuMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "UbuntuMono Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "UbuntuMono Nerd Font"
+style = "Regular"
+
+[font.offset]
+x = 1
+y = 1
+
+[[keyboard.bindings]]
+chars = "\u001BF"
+key = "Right"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001BB"
+key = "Left"
+mods = "Control"
+
+[window]
+decorations = "buttonless"
+dynamic_padding = false
+
+[window.padding]
+x = 8
+y = 4

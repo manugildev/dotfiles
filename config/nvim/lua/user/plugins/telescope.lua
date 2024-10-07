@@ -3,7 +3,6 @@ return {
 	dependencies = {
 		"nvim-telescope/telescope-live-grep-args.nvim",
 	},
-	commit = "32e6792f865221dfaf2a3751fd3cfeac96557433",
 	opts = function(_, opts)
 		opts = {
 			defaults = {

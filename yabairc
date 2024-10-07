@@ -1,24 +1,24 @@
 #!/usr/bin/env sh
-sudo yabai --load-sa
+sudo launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist > /dev/null 2>&1 &
+sudo yabai --uninstall-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-yabai -m config debug_output on
+sudo yabai --load-sa
 
-# bar settings
-yabai -m config top_padding                 0
+yabai -m config debug_output on
 
 # global settings
 yabai -m config mouse_follows_focus         off
-yabai -m config focus_follows_mouse         autoraise
+yabai -m config focus_follows_mouse         off
 
 yabai -m config window_placement            second_child
-yabai -m config window_topmost              off
+#yabai -m config window_topmost              off
 
-yabai -m config window_opacity              off
-yabai -m config window_opacity_duration     0.0
+yabai -m config window_opacity              on
+yabai -m config active_window_opacity       1.0
+yabai -m config normal_window_opacity       1.0
+yabai -m config window_opacity_duration     0.1
 yabai -m config window_shadow               off
 
-yabai -m config active_window_opacity       1.0
-yabai -m config normal_window_opacity       0.90
 yabai -m config split_ratio                 0.50
 yabai -m config auto_balance                off
 
@@ -28,56 +28,112 @@ yabai -m config mouse_action1               move
 yabai -m config mouse_action2               resize
 
 # general space settings
+yabai -m config external_bar		    all:32:0
 yabai -m config layout                      bsp
-yabai -m config bottom_padding              0
-yabai -m config left_padding                0
-yabai -m config right_padding               0
-yabai -m config window_gap                  0
+yabai -m config top_padding                 5
+yabai -m config bottom_padding              3
+yabai -m config left_padding                3
+yabai -m config right_padding               3
+yabai -m config window_gap                  3
 
 # border settings
-yabai -m config window_border               on
-yabai -m config window_border_width         1
-yabai -m config active_window_border_color  0xFFD5FF80
-yabai -m config normal_window_border_color  0xFF242936
+#yabai -m config window_border               on
+#yabai -m config window_border_width         1
+#yabai -m config window_border_hidpi         on
+#yabai -m config window_border_radius        11
+#yabai -m config active_window_border_color  0xFFD5FF80
+#yabai -m config normal_window_border_color  0xFF242936
+#yabai -m config insert_feedback_color       0xFFFA2573
 
 # float system preferences
-yabai -m rule --add app='^System Information$' manage=off
-yabai -m rule --add app='^System Preferences$' manage=off
-yabai -m rule --add app='^System Settings$' manage=off
-yabai -m rule --add app='^JetBrains Toolbox$' manage=off
-yabai -m rule --add app='^Surfshark$' manage=off
-yabai -m rule --add app="^Archive Utility$" manage=off
-yabai -m rule --add title='Preferences$' manage=off
+yabai -m rule --add app="Calculator" manage=off
+yabai -m rule --add app="Messages" manage=off
+yabai -m rule --add app="Photo Booth" manage=off
+yabai -m rule --add app="Surfshark" manage=off
+yabai -m rule --add app="System Preferences" manage=off
+yabai -m rule --add app="System Settings" manage=off
+yabai -m rule --add app="The Unarchiver" manage=off
+yabai -m rule --add app="^Color Picker$" manage=off
+yabai -m rule --add app="^FaceTime$" manage=off
+yabai -m rule --add app="^Preview$" manage=off
+yabai -m rule --add app="^QuickTime Player$" manage=off
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^Unity Hub$" manage=off
+yabai -m rule --add app="^Unity$" manage=off
+yabai -m rule --add app="zoom" manage=off
+yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+yabai -m rule --add label="Activity Monitor" app="^Activity Monitor$" manage=off
+yabai -m rule --add label="App Store" app="^App Store$" manage=off
+yabai -m rule --add label="Calculator" app="^Calculator$" manage=off
+yabai -m rule --add label="Dictionary" app="^Dictionary$" manage=off
+yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+yabai -m rule --add label="Software Update" title="Software Update" manage=off
+yabai -m rule --add label="System Preferences" app="^System Preferences$" title=".*" manage=off
+yabai -m rule --add title="Preferences$" manage=off
+yabai -m rule --add title="Settings$" manage=off
+yabai -m rule --add title="Spotify" manage=off native-fullscreen=on
 
-# float settings windows
-yabai -m rule --add title='Settings$' manage=off
+yabai -m rule --add app="^Android Studio" manage=off
+yabai -m rule --add app="^Android Studio" title="(.*\[(.*)\].*)|(.*\(\:.*\).*)" manage=on
 
 # send windows to spaces
-yabai -m rule --add app='^Alacritty$' space=1
+yabai -m rule --add app="^Alacritty$" space=^1
 
-#> social
-yabai -m rule --add app='^Slack$' space=2
-yabai -m rule --add app='^Telegram$' space=2
-yabai -m rule --add app='^WhatsApp$' space=2
+#> comms 
+comms=(
+	Slack
+	Telegram
+	WhatsApp
+)
+for app in "${comms[@]}"; do
+    yabai -m rule --add app="^$app.*$" space=^2
+done
 
 #> internet
-yabai -m rule --add app='^Chrome$' space=3
-yabai -m rule --add app='^Google Chrome$' space=3
-yabai -m rule --add app='^Brave$' space=3
-yabai -m rule --add app='^Brave Browser$' space=3
+browsers=(
+	Chrome
+	Google Chrome
+	Brave
+	Brave Browser
+	Browser
+)
+for app in "${browsers[@]}"; do
+    yabai -m rule --add app="^$app.*$" space=^3
+done
 
 #> code
-multiple_display_setup=$(yabai -m query --displays | jq -r 'length == 2')
-if [ $(yabai -m query --displays | jq -r 'length == 2') != false ]; then
-	yabai -m rule --add app='^Code$' display=2
+multiple_display_setup=$(yabai -m query --displays | jq -r "length")
+if [ $multiple_display_setup -eq 2 ]; then
+    yabai -m rule --add app="^Code.*$" display=^2
 else
-	yabai -m rule --add app='^Code$' space=4
+    yabai -m rule --add app="^Code.*$" space=^4
 fi
 
 #> unity
-yabai -m rule --add app='^Unity$' space=5
-yabai -m rule --add title='^Unity$' space=5
-yabai -m rule --add app='^Unity Hub$' space=5
-yabai -m rule --add app='^Unity Multitool$' space=5
+unity=(
+	Unity Hub
+	Unity Multitool
+)
+for app in "${unity[@]}"; do
+    yabai -m rule --add app="^$app.*$" space=^6
+done
+yabai -m rule --add app="^Unity$" space=^5 native-fullscreen=on
+
+#yabai -m signal --remove window_focused
+#yabai -m signal --remove window_created
+#yabai -m signal --remove window_destroyed
+#yabai -m signal --remove display_added
+#yabai -m signal --remove display_removed
+
+yabai -m signal --add label=window_focused event=window_focused action="sketchybar --trigger window_focus"
+yabai -m signal --add label=window_created event=window_created action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add label=window_destroyed event=window_destroyed action="sketchybar --trigger windows_on_spaces"
+
+yabai -m signal --add label=display_added event=display_added action="source ~/.yabairc"
+yabai -m signal --add label=display_removed event=display_removed action="source ~/.yabairc"
+
+
+# BORDERS
+borders active_color=0xffe2e2e3 inactive_color=0xff414550 style=round width=3.0 hidpi=on &
 
 echo "yabai configuration loaded.."

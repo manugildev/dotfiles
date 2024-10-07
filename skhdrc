@@ -1,14 +1,14 @@
 # restart yabai launch agent / refresh
-ctrl + lalt + cmd - r : yabai --restart-service
+lalt + shift - r : source ~/.yabairc
 
 # change focus
-lalt - h : yabai -m window --focus west || $(yabai -m display --focus west)
+lalt - h : yabai -m window --focus west || $(yabai -m display --focus west) || yabai -m space --focus $(yabai -m query --spaces --space | jq '.index - 1')
 lalt - j : yabai -m window --focus south || $(yabai -m display --focus south)
 lalt - k : yabai -m window --focus north || $(yabai -m display --focus north)
-lalt - l : yabai -m window --focus east || $(yabai -m display --focus east)
+lalt - l : yabai -m window --focus east || $(yabai -m display --focus east) || yabai -m space --focus $(yabai -m query --spaces --space | jq '.index + 1')
 
 # shift window in current workspace
-lalt + shift - h : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
+lalt + shift - h : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west) 
 lalt + shift - j : yabai -m window --swap south || $(yabai -m window --display south; yabai -m display --focus south)
 lalt + shift - k : yabai -m window --swap north || $(yabai -m window --display north; yabai -m display --focus north)
 lalt + shift - l : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
@@ -107,6 +107,7 @@ lalt + shift - 0 : yabai -m space --balance
 # cycle through stack windows
 # lalt - p : yabai -m window --focus stack.next || yabai -m window --focus south
 # lalt - n : yabai -m window --focus stack.prev || yabai -m window --focus north
+ralt - r : yabai -m space --rotate 90
 
 # toggle window floating
 ralt - o : yabai -m window --toggle float
@@ -127,8 +128,11 @@ lalt + shift - n : yabai -m space --create && \
         yabai -m space --focus "${index}"
 
 # destroy focused workspace and focus previous
-lalt + shift - d : index="$(yabai -m query --spaces --display | jq -r 'map(select(.["has-focus"] == true))[0].index')" && prev_index=$(expr $index - 1) && \
+lalt + shift - d : index="$(yabai -m query --spaces --display | jq -r 'map(select(.["has-focus"] == true))[0].index')" && prev_index=$(expr $index + 1) && \
         yabai -m space --focus "${prev_index}" --destroy "${index}" 
 
-# focus VSCode
+# focus apps
 lalt - c : open -a "Visual Studio Code"
+lalt - u : pgrep -x "Unity" > /dev/null && (osascript -e 'tell application "Unity" to activate' &&  yabai -m space --focus 5) || open -a "Unity"
+lalt - s : open -a "Slack"
+lalt - y : open -a "Spotify"
