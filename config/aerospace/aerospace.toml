@@ -5,9 +5,8 @@ after-login-command = []
 
 # Borders
 after-startup-command = [
-    # JankyBorders has a built-in detection of already running process,
-    # so it won't be run twice on AeroSpace restart
-    'exec-and-forget borders active_color=0xffe2e2e3 inactive_color=0xff414550 style=round width=4.0 hidpi=on'
+    	'exec-and-forget borders active_color=0xffe2e2e3 inactive_color=0xff414550 style=round width=4.0 hidpi=on',
+	#'exec-and-forget sketchybar'
 ]
 
 # Start AeroSpace at login
@@ -111,6 +110,9 @@ alt-j = 'focus down --boundaries all-monitors-outer-frame --boundaries-action wr
 alt-k = 'focus up --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
 alt-l = 'focus right --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
 
+alt-m = 'workspace --wrap-around next'
+alt-n = 'workspace --wrap-around prev'
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 alt-shift-h = 'move left'
 alt-shift-j = 'move down'
@@ -132,7 +134,7 @@ alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 alt-a = 'workspace A'
-# alt-b = 'workspace B'
+alt-b = 'workspace B'
 # alt-c = 'workspace C'
 # alt-d = 'workspace D'
 # alt-e = 'workspace E'
@@ -148,29 +150,29 @@ alt-g = 'workspace G'
 alt-s = 'workspace S'
 # alt-t = 'workspace T'
 # alt-u = 'workspace U'
-# alt-v = 'workspace V'
+alt-v = 'workspace V'
 # alt-w = 'workspace W'
 # alt-x = 'workspace X'
 # alt-y = 'workspace Y'
 # alt-z = 'workspace Z'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-alt-shift-1 = 'move-node-to-workspace 1'
-alt-shift-2 = 'move-node-to-workspace 2'
-alt-shift-3 = 'move-node-to-workspace 3'
-alt-shift-4 = 'move-node-to-workspace 4'
-alt-shift-5 = 'move-node-to-workspace 5'
-alt-shift-6 = 'move-node-to-workspace 6'
-alt-shift-7 = 'move-node-to-workspace 7'
-alt-shift-8 = 'move-node-to-workspace 8'
-alt-shift-9 = 'move-node-to-workspace 9'
-alt-shift-a = 'move-node-to-workspace A'
-# alt-shift-b = 'move-node-to-workspace B'
+alt-shift-1 = [ 'move-node-to-workspace 1', "workspace 1" ]
+alt-shift-2 = [ 'move-node-to-workspace 2', "workspace 2" ]
+alt-shift-3 = [ 'move-node-to-workspace 3', "workspace 3" ]
+alt-shift-4 = [ 'move-node-to-workspace 4', "workspace 4" ]
+alt-shift-5 = [ 'move-node-to-workspace 5', "workspace 5" ]
+alt-shift-6 = [ 'move-node-to-workspace 6', "workspace 6" ]
+alt-shift-7 = [ 'move-node-to-workspace 7', "workspace 7" ]
+alt-shift-8 = [ 'move-node-to-workspace 8', "workspace 8" ]
+alt-shift-9 = [ 'move-node-to-workspace 9', "workspace 9" ]
+alt-shift-a = [ 'move-node-to-workspace A', "workspace A" ]
+alt-shift-b = [ 'move-node-to-workspace B', "workspace B" ]
 # alt-shift-c = 'move-node-to-workspace C'
 # alt-shift-d = 'move-node-to-workspace D'
 # alt-shift-e = 'move-node-to-workspace E'
 # alt-shift-f = 'move-node-to-workspace F'
-alt-shift-g = 'move-node-to-workspace G'
+alt-shift-g = [ 'move-node-to-workspace G', "workspace G" ]
 # alt-shift-i = 'move-node-to-workspace I'
 # alt-shift-m = 'move-node-to-workspace M'
 # alt-shift-n = 'move-node-to-workspace N'
@@ -178,10 +180,10 @@ alt-shift-g = 'move-node-to-workspace G'
 # alt-shift-p = 'move-node-to-workspace P'
 # alt-shift-q = 'move-node-to-workspace Q'
 # alt-shift-r = 'move-node-to-workspace R'
-alt-shift-s = 'move-node-to-workspace S'
+alt-shift-s = [ 'move-node-to-workspace S', "workspace S" ]
 # alt-shift-t = 'move-node-to-workspace T'
 # alt-shift-u = 'move-node-to-workspace U'
-# alt-shift-v = 'move-node-to-workspace V'
+alt-shift-v = [ 'move-node-to-workspace V', "workspace V" ]
 # alt-shift-w = 'move-node-to-workspace W'
 # alt-shift-x = 'move-node-to-workspace X'
 # alt-shift-y = 'move-node-to-workspace Y'
@@ -215,10 +217,6 @@ alt-shift-l = ['join-with right', 'mode main']
 ## Callbacks
 ###############################################################################
 [[on-window-detected]]
-if.app-id = 'com.apple.ActivityMonitor'
-run = 'layout floating'
-
-[[on-window-detected]]
 if.app-id = 'org.alacritty'
 run = 'move-node-to-workspace 1'
 
@@ -249,12 +247,31 @@ run = 'move-node-to-workspace 5'
 # MultiTool needs to be forced into tiling
 [[on-window-detected]]
 if.app-name-regex-substring = 'Unity*'
-run = ['layout tiling', 'move-node-to-workspace 6']
+run = 'move-node-to-workspace 6'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Android Studio'
+run = 'move-node-to-workspace A'
+
+[[on-window-detected]]
+if.app-id = 'com.github.GitHubClient'
+run = 'move-node-to-workspace G'
 
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
 run = 'move-node-to-workspace S'
 
 [[on-window-detected]]
-if.app-id = 'com.github.GitHubClient'
-run = 'move-node-to-workspace G'
+if.app-id = 'org.videolan.vlc'
+run = 'move-node-to-workspace V'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.ActivityMonitor'
+run = 'layout floating'
+
+###############################################################################
+## Monitor
+###############################################################################
+[workspace-to-monitor-force-assignment]
+# 1 = 'main'
+5 = ['hp', 'built-in']
