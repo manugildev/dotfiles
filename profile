@@ -27,7 +27,6 @@ alias python="python3.8"
 
 # General Exports 
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden"
-export MYVIMRC="~/.config/nvim/init.vim"
 
 # Rust Lang Support
 export PATH="$PATH:$HOME/.cargo/bin"

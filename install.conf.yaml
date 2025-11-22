@@ -6,8 +6,7 @@
 
 - create:
         - ~/.config/alacritty
-        - ~/.config/regolith
-        - ~/.config/regolith/i3
+        - ~/.config/regolith2
         - ~/.config/tmux
 - link:
     ~/.profile: profile
@@ -22,9 +21,8 @@
 #    ~/.config/nvim/coc-settings.json: config/nvim/coc-settings.json
     ~/.config/tmux/start_session.sh: config/tmux/start_session.sh
     ~/.config/alacritty/alacritty.yml: config/alacritty/alacritty.yml
-    ~/.config/regolith/Xresources: config/regolith/Xresources
     ~/.Xresources-regolith: Xresources-regolith
-    ~/.config/regolith/i3/config: config/regolith/i3/config
+    ~/.config/regolith2: config/regolith2/
 #    ~/.config/i3:
 #        path: config/i3/
 #        create: true

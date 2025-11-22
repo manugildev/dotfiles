@@ -1,4 +1,3 @@
-
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
@@ -18,20 +17,26 @@ return require('packer').startup(function(use)
 --        'rose-pine/neovim',
 --        as = 'rose-pine',
 --        config = function()
---            require('rose-pine').setup({ disable_italics = true })
+--            require('rose-pine').setup({
+--                disable_italics=true,
+--                disable_background=true,
+--                disable_float_background=true
+--            })
 --            vim.cmd('colorscheme rose-pine')
 --        end
 --    })
-    use({
-        'navarasu/onedark.nvim',
-        as = 'onedark',
-        config = function()
-            require('onedark').setup({
-                style = 'darker',
-                transparent = true,
-            })
-            require('onedark').load()
-        end
+--
+    use({ 'navarasu/onedark.nvim', as = 'onedark',
+    config = function()
+        require('onedark').setup({
+            style = 'darker',
+            transparent = true,
+            term_colors = true,
+            colors = {
+            },
+        })
+        require('onedark').load()
+    end
     })
 
     --use({ 'manugildev/vim-material-monokai', as = 'material-monokai' })
