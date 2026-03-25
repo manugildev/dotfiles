@@ -12,6 +12,7 @@
         - ~/.config/tmux
 
 - link:
+    ~/.zshrc: zshrc
     ~/.profile: profile
     ~/.gitconfig: gitconfig
     ~/.skhdrc: skhdrc
