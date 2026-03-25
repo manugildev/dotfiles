@@ -1,43 +1,63 @@
 [user]
-	email = manuel.gil@unity3d.com
-	name = Manuel Gil
-[credential]
-	helper = store
-	helper = 
-	helper = /usr/local/share/gcm-core/git-credential-manager
+    name = Manuel Gil
+    email = manuel.gil@unity3d.com
+[blame]
+    # commits to skip on blame (look in the file for docs)
+    ignoreRevsFile = .git-blame-ignore-revs
 [core]
-	editor = nvim
-	excludesfile = $HOME/.gitignore_global
+    editor = nvim
+    excludesfile = $HOME/.gitignore_global
+    # turn on filesystem watcher to avoid rescanning tree for status
+   jfsmonitor = true
+[credential]
+    helper = store
+    helper = /usr/local/share/gcm-core/git-credential-manager
+[init]
+    defaultBranch = main
+[pull]
+    ff = true
+    rebase = true
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
+[feature]
+    # optimizations to speed certain operations in monorepos
+    manyFiles = true
 [diff]
-	tool = bc
+    tool = bc
+    algorithm = histogram
 [difftool]
-	prompt = true
+    prompt = true
 [merge]
-	tool = bc
+    tool = bc
 [mergetool "bc"]
-	trustExitCode = true
+    trustExitCode = true
 [status]
-	showUntrackedFiles = all
+    showUntrackedFiles = all
+[column]
+    ui = auto
+[branch]
+    sort = -committerdate
+[tag]
+    sort = version:refname
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[oh-my-zsh]
-	hide-dirty = 1
 [diff-so-fancy]
-	stripLeadingSymbols = false
-[pull]
-	ff = true
+    stripLeadingSymbols = false
+[oh-my-zsh]
+    hide-dirty = 1
+
 #[lfs]
-	#storage = /opt/lfs_storage
-[credential "https://dev.azure.com"]
-	useHttpPath = true
-[init]
-	defaultBranch = main
+#    storage = /opt/lfs_storage
+
+[alias]
+    sc = "!f() { git rev-parse --verify $1 >/dev/null 2>&1 && git checkout $1 || git checkout -b $1; }; f"
+    gc-full = !git -c core.longPaths=true gc --aggressive --prune=now && git lfs prune --verify-remote
+
+  
+
+ 
