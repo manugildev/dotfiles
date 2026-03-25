@@ -5,12 +5,12 @@ after-login-command = []
 
 # Borders
 after-startup-command = [
-    	'exec-and-forget borders active_color=0xffe2e2e3 inactive_color=0xff414550 style=round width=4.0 hidpi=on',
+    'exec-and-forget borders active_color=0xffe2e2e3 inactive_color=0xff414550 style=round width=4.0 hidpi=on',
 	#'exec-and-forget sketchybar'
 ]
 
 # Start AeroSpace at login
-start-at-login = false
+start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -43,9 +43,9 @@ on-focus-changed = 'move-mouse window-lazy-center'
 
 # SketchyBar
 # Notify Sketchybar about workspace change
-exec-on-workspace-change = ['/bin/bash', '-c',
-    'sketchybar --trigger aerospace_workspace_change FOCUSED=$AEROSPACE_FOCUSED_WORKSPACE'
-]
+# exec-on-workspace-change = ['/bin/bash', '-c',
+#     'sketchybar --trigger aerospace_workspace_change FOCUSED=$AEROSPACE_FOCUSED_WORKSPACE'
+# ]
 
 ###############################################################################
 ## Appearance
@@ -103,6 +103,7 @@ alt-f = 'fullscreen'
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
+alt-t = 'layout floating tiling'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 alt-h = 'focus left --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
@@ -110,8 +111,8 @@ alt-j = 'focus down --boundaries all-monitors-outer-frame --boundaries-action wr
 alt-k = 'focus up --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
 alt-l = 'focus right --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
 
-alt-m = 'workspace --wrap-around next'
-alt-n = 'workspace --wrap-around prev'
+#alt-m = 'workspace --wrap-around next'
+#alt-n = 'workspace --wrap-around prev'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 alt-shift-h = 'move left'
@@ -143,7 +144,7 @@ alt-g = 'workspace G'
 # alt-i = 'workspace I'
 # alt-m = 'workspace M'
 # alt-n = 'workspace N'
-# alt-o = 'workspace O'
+alt-o = 'workspace O'
 # alt-p = 'workspace P'
 # alt-q = 'workspace Q'
 # alt-r = 'workspace R'
@@ -153,7 +154,7 @@ alt-s = 'workspace S'
 alt-v = 'workspace V'
 # alt-w = 'workspace W'
 # alt-x = 'workspace X'
-# alt-y = 'workspace Y'
+alt-y = 'workspace Y'
 # alt-z = 'workspace Z'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
@@ -168,26 +169,26 @@ alt-shift-8 = [ 'move-node-to-workspace 8', "workspace 8" ]
 alt-shift-9 = [ 'move-node-to-workspace 9', "workspace 9" ]
 alt-shift-a = [ 'move-node-to-workspace A', "workspace A" ]
 alt-shift-b = [ 'move-node-to-workspace B', "workspace B" ]
-# alt-shift-c = 'move-node-to-workspace C'
-# alt-shift-d = 'move-node-to-workspace D'
-# alt-shift-e = 'move-node-to-workspace E'
-# alt-shift-f = 'move-node-to-workspace F'
+# alt-shift-c = 'move-node-to-workspace C', "workspace C" ]
+# alt-shift-d = 'move-node-to-workspace D', "workspace D" ]
+# alt-shift-e = 'move-node-to-workspace E', "workspace E" ]
+# alt-shift-f = 'move-node-to-workspace F', "workspace F" ]
 alt-shift-g = [ 'move-node-to-workspace G', "workspace G" ]
-# alt-shift-i = 'move-node-to-workspace I'
-# alt-shift-m = 'move-node-to-workspace M'
-# alt-shift-n = 'move-node-to-workspace N'
-# alt-shift-o = 'move-node-to-workspace O'
-# alt-shift-p = 'move-node-to-workspace P'
-# alt-shift-q = 'move-node-to-workspace Q'
-# alt-shift-r = 'move-node-to-workspace R'
+# alt-shift-i = 'move-node-to-workspace I', "workspace I" ]
+# alt-shift-m = 'move-node-to-workspace M', "workspace M" ]
+# alt-shift-n = 'move-node-to-workspace N', "workspace N" ]
+alt-shift-o = [ 'move-node-to-workspace O', "workspace O" ]
+# alt-shift-p = 'move-node-to-workspace P', "workspace P" ]
+# alt-shift-q = 'move-node-to-workspace Q', "workspace Q" ]
+# alt-shift-r = 'move-node-to-workspace R', "workspace R" ]
 alt-shift-s = [ 'move-node-to-workspace S', "workspace S" ]
-# alt-shift-t = 'move-node-to-workspace T'
-# alt-shift-u = 'move-node-to-workspace U'
+# alt-shift-t = 'move-node-to-workspace T', "workspace T" ]
+# alt-shift-u = 'move-node-to-workspace U', "workspace U" ]
 alt-shift-v = [ 'move-node-to-workspace V', "workspace V" ]
-# alt-shift-w = 'move-node-to-workspace W'
-# alt-shift-x = 'move-node-to-workspace X'
-# alt-shift-y = 'move-node-to-workspace Y'
-# alt-shift-z = 'move-node-to-workspace Z'
+# alt-shift-w = 'move-node-to-workspace W', "workspace W" ]
+# alt-shift-x = 'move-node-to-workspace X', "workspace X" ]
+alt-shift-y = [ 'move-node-to-workspace Y', "workspace Y" ]
+# alt-shift-z = 'move-node-to-workspace Z', "workspace Z" ]
  
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -233,7 +234,20 @@ if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+if.window-title-regex-substring = 'Picture in Picture'
+run = 'layout floating'
+check-further-callbacks = true
+
+[[on-window-detected]] # Seems to have no effect
 if.app-id = 'com.brave.Browser'
+if.window-title-regex-substring = 'Picture in Picture'
+run = 'layout floating'
+check-further-callbacks = true
+
+[[on-window-detected]]
+if.app-id = 'com.brave.Browser'
+if.window-title-regex-substring = '(?!Picture in Picture$)'
 run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
@@ -269,9 +283,34 @@ run = 'move-node-to-workspace V'
 if.app-id = 'com.apple.ActivityMonitor'
 run = 'layout floating'
 
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = 'layout floating'
+
+[[on-window-detected]] # Seems to have no effect
+if.app-id = 'com.apple.dt.Xcode'
+if.window-title-regex-substring = 'Devices'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = 'move-node-to-workspace O'
+
+[[on-window-detected]]
+if.app-name-regex-substring = '^Yamato$'
+run = 'move-node-to-workspace Y'
+
+[[on-window-detected]]
+if.app-id = 'cc.ffitch.shottr'
+run = 'layout floating'
+
 ###############################################################################
 ## Monitor
 ###############################################################################
 [workspace-to-monitor-force-assignment]
 # 1 = 'main'
-5 = ['hp', 'built-in']
+5 = ['hp', 'DELL', 'built-in']
