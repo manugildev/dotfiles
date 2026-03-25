@@ -30,5 +30,10 @@ export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden"
 export MYVIMRC="~/.config/nvim/init.vim"
 
 # Rust Lang Support
-export PATH="$PATH:$HOME/.cargo/bin"
-. "$HOME/.cargo/env"
+# export PATH="$PATH:$HOME/.cargo/bin"
+#. "$HOME/.cargo/env"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/manuel.gil/.lmstudio/bin"
+# End of LM Studio CLI section
+
