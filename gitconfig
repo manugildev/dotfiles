@@ -8,7 +8,8 @@
     editor = nvim
     excludesfile = $HOME/.gitignore_global
     # turn on filesystem watcher to avoid rescanning tree for status
-   jfsmonitor = true
+	untrackedCache = true
+	fsmonitor = true
 [credential]
     helper = store
     helper = /usr/local/share/gcm-core/git-credential-manager

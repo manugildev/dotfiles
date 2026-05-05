@@ -49,15 +49,12 @@ style = "Regular"
 x = 1
 y = 1
 
-[[keyboard.bindings]]
-chars = "\u001BF"
-key = "Right"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "\u001BB"
-key = "Left"
-mods = "Control"
+[keyboard]
+bindings = [
+  { key = "Return", mods = "Shift",   chars = "\u001b\r" },
+  { key = "Right",  mods = "Control", chars = "\u001BF" },
+  { key = "Left",   mods = "Control", chars = "\u001BB" }
+]
 
 [window]
 decorations = "buttonless"
