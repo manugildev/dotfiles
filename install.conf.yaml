@@ -13,6 +13,7 @@
 
 - link:
     ~/.zshrc: zshrc
+    ~/.bash_profile: bash_profile
     ~/.profile: profile
     ~/.gitconfig: gitconfig
     ~/.skhdrc: skhdrc
