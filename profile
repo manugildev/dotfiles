@@ -1,39 +1,18 @@
-# ~/.profile: executed by the command interpreter for login shells.
-# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login exists.
-# see /usr/share/doc/bash/examples/startup-files for examples.
-# the files are located in the bash-doc package.
+# ~/.profile: executed by sh/bash for login shells.
+# Not read by bash if ~/.bash_profile exists, but kept for POSIX portability.
 
-# if running bash
+# Include .bashrc if running bash interactively
 if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+        . "$HOME/.bashrc"
     fi
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
+# Add ~/bin and ~/.local/bin to PATH if they exist
+if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
+if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
-
-# General Aliases
-alias start-rust-ide="~/.config/tmux/start_session.sh"
-alias python="python3.8"
-
-# General Exports 
-export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden"
-export MYVIMRC="~/.config/nvim/init.vim"
-
-# Rust Lang Support
-# export PATH="$PATH:$HOME/.cargo/bin"
-#. "$HOME/.cargo/env"
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/manuel.gil/.lmstudio/bin"
-# End of LM Studio CLI section
-
