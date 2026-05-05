@@ -3,9 +3,9 @@ tms() {
   session=$(tmux list-sessions -F '#{session_name}' 2>/dev/null | fzf) && tmux attach -t "$session"
 }
 
-# Only attach if in a terminal (with a valid TTY), not in nested shells
-if [[ -t 0 ]] && [[ -n $PS1 ]] && [ -z $TMUX ]; then
-  tmux attach -t $(tmux list-sessions -F '#{session_last_attached} #{session_name}' 2>/dev/null | sort -rn | head -1 | awk '{print $2}') 2>/dev/null
+# Only attach if in a terminal, not in nested shells
+if [[ -n $PS1 ]] && [ -z $TMUX ]; then
+  tms
 fi
 
 # Exit tmux popup with Escape
@@ -17,8 +17,6 @@ if [[ -n "$TMUX_POPUP_SHELL" ]]; then
 fi
 
 # Path to your oh-my-zsh installation.
-# Install with: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-# Plugins: git-open, zsh-autosuggestions, zsh-syntax-highlighting must be cloned into $ZSH/custom/plugins/
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
@@ -68,7 +66,8 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
 # Work aliases (Unity, etc.)
-[[ -f "$HOME/.zshrc.work" ]] && source "$HOME/.zshrc.work"
+
+# [[ -f "$HOME/.zshrc.work" ]] && source "$HOME/.zshrc.work"
 
 # PATH entries (guarded to avoid clutter if not installed)
 [[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"

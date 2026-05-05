@@ -19,6 +19,3 @@ export PATH="$PATH:$HOME/.scripts"
 export JIRA_AUTH_TOKEN="REMOVED_TOKEN"
 google_auth_token() { gcloud auth print-access-token 2>/dev/null; }
 
-# Added by Antigravity CLI installer
-export PATH="/Users/manuel.gil/.local/bin:$PATH"
-export JAVA_HOME=/Users/manuel.gil/Library/Java/JavaVirtualMachines/jbr-17.0.7/Contents/Home
