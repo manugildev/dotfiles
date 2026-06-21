@@ -3,9 +3,9 @@ tms() {
   session=$(tmux list-sessions -F '#{session_name}' 2>/dev/null | fzf) && tmux attach -t "$session"
 }
 
-# Only attach if in a terminal, not in nested shells
-if [[ -n $PS1 ]] && [ -z $TMUX ]; then
-  tms
+# Only attach if in a terminal (with a valid TTY), not in nested shells
+if [[ -t 0 ]] && [[ -n $PS1 ]] && [ -z $TMUX ]; then
+  tmux attach -t $(tmux list-sessions -F '#{session_last_attached} #{session_name}' 2>/dev/null | sort -rn | head -1 | awk '{print $2}') 2>/dev/null
 fi
 
 # Exit tmux popup with Escape
@@ -61,8 +61,8 @@ alias python=python3.12
 alias pip=pip3.12
 alias python3=python3.12
 alias pip3=pip3.12
-alias llvm-objdump="~/Library/Android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-objdump"
-alias zipalign="/Users/manuel.gil/Library/Android/sdk/build-tools/35.0.0-rc3/zipalign"
+alias llvm-objdump='$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-objdump'
+alias yt-480='yt-dlp -f "bestvideo[height<=480]+bestaudio/best[height<=480]"'
 
 # Unity aliases
 alias build_android="./jam AndroidPlayer64IL2CPP -sCONFIG=release && ./jam MacEditorArm64 -sCONFIG=release"
@@ -72,3 +72,20 @@ alias check_if_gradle_version_was_bumped="build_android && perl utr.pl --suite='
 # Alacritty move arrows
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+
+# Unity CLI
+. "/Users/manuel.gil/.unity/env"
+
+# Added by Android CLI installer
+export PATH="$PATH:/Users/manuel.gil/.local/bin"
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/manuel.gil/.local/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/manuel.gil/.antigravity/antigravity/bin:$PATH"
+
+# Added by Antigravity IDE
+export PATH="/Users/manuel.gil/.antigravity-ide/antigravity-ide/bin:$PATH"
+export PATH="/opt/homebrew/opt/lsof/bin:$PATH"
