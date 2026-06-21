@@ -2,11 +2,8 @@ aerospace
 alacritty
 alt-tab
 android-studio
-anki
 antigravity
 antigravity-ide
-autodesk-fusion
-autodesk-fusion360
 beyond-compare
 brave-browser
 cap
