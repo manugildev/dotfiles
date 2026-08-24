@@ -1,0 +1,16 @@
+aoe
+bash
+curl
+eza
+felixkratz/formulae/borders
+fzf
+gh
+git
+grep
+jq
+lazygit
+neovim
+tailscale
+terminal-notifier
+zsh
+zsh-history-substring-search
