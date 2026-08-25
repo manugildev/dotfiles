@@ -5,18 +5,13 @@
 
 - clean: ['~']
 
-- create:
-        # - ~/.config/alacritty
-        - ~/.config/regolith
-        - ~/.config/regolith/i3
-        - ~/.config/tmux
-
 - link:
     ~/.zshrc: zshrc
+    ~/.zshrc.work: zshrc.work
     ~/.bash_profile: bash_profile
     ~/.profile: profile
     ~/.gitconfig: gitconfig
-~/.Xresources-regolith: Xresources-regolith
+    ~/.Xresources-regolith: Xresources-regolith
     ~/.config/alacritty: config/alacritty
     ~/.config/nvim: config/nvim/
     ~/.config/aerospace: config/aerospace/
@@ -24,9 +19,8 @@
     ~/.config/regolith/i3/config: config/regolith/i3/config
     ~/.config/tmux/start_session.sh: config/tmux/start_session.sh
     ~/.config/tmux/tmux.conf: config/tmux/tmux.conf
-#    ~/.config/i3:
-#        path: config/i3/
-#        create: true
-#        force: true
 
-
+- shell:
+    - ["git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm || true", Clone TPM]
+    - ["~/.config/tmux/plugins/tpm/bin/install_plugins", Install tmux plugins]
+    - [bash macos.sh, Apply macOS system settings]
