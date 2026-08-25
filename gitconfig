@@ -12,7 +12,8 @@
 	fsmonitor = true
 [credential]
     helper = store
-    helper = /usr/local/share/gcm-core/git-credential-manager
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
 [init]
     defaultBranch = main
 [pull]
@@ -59,6 +60,3 @@
     sc = "!f() { git rev-parse --verify $1 >/dev/null 2>&1 && git checkout $1 || git checkout -b $1; }; f"
     gc-full = !git -c core.longPaths=true gc --aggressive --prune=now && git lfs prune --verify-remote
 
-  
-
- 
