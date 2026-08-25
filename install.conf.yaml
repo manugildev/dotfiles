@@ -16,9 +16,7 @@
     ~/.bash_profile: bash_profile
     ~/.profile: profile
     ~/.gitconfig: gitconfig
-    ~/.skhdrc: skhdrc
-    ~/.yabairc: yabairc
-    ~/.Xresources-regolith: Xresources-regolith
+~/.Xresources-regolith: Xresources-regolith
     ~/.config/alacritty: config/alacritty
     ~/.config/nvim: config/nvim/
     ~/.config/aerospace: config/aerospace/
