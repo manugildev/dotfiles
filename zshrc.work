@@ -1,0 +1,5 @@
+# Unity aliases - work-specific, sourced from ~/.zshrc
+alias build_android="./jam AndroidPlayer64IL2CPP -sCONFIG=release && ./jam MacEditorArm64 -sCONFIG=release"
+alias build_android_and_run="build_android && ./run"
+alias check_if_gradle_version_was_bumped="build_android && ./test.sh --suite='editor' --clean-library --category='RequirePlatformSupport' --setup-platform='android' --category='RequirePlatformSupport' --projectlist='Tests/EditModeAndPlayModeTests/projectlist-withandroidplayers-editor.txt' --testfilter='Tests\.AndroidGradleTemplateTests\.CheckIfGradleTemplateVersionWasBumped' --testproject='PlatformDependent/AndroidPlayer/Tests/EditorTests'"
+run_empty() { pkill -f "Unity.app/Contents/MacOS/Unity .*--projectpath /opt/UnitySrc/unity-metrics-automation/Projects/Empty"; while pgrep -f "Unity.app/Contents/MacOS/Unity .*--projectpath /opt/UnitySrc/unity-metrics-automation/Projects/Empty" > /dev/null; do sleep 0.5; done; ./run --projectpath /opt/UnitySrc/unity-metrics-automation/Projects/Empty }

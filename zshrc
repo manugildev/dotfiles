@@ -3,9 +3,9 @@ tms() {
   session=$(tmux list-sessions -F '#{session_name}' 2>/dev/null | fzf) && tmux attach -t "$session"
 }
 
-# Only attach if in a terminal, not in nested shells
-if [[ -n $PS1 ]] && [ -z $TMUX ]; then
-  tms
+# Only attach if in a terminal (with a valid TTY), not in nested shells
+if [[ -t 0 ]] && [[ -n $PS1 ]] && [ -z $TMUX ]; then
+  tmux attach -t $(tmux list-sessions -F '#{session_last_attached} #{session_name}' 2>/dev/null | sort -rn | head -1 | awk '{print $2}') 2>/dev/null
 fi
 
 # Exit tmux popup with Escape
@@ -17,6 +17,8 @@ if [[ -n "$TMUX_POPUP_SHELL" ]]; then
 fi
 
 # Path to your oh-my-zsh installation.
+# Install with: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# Plugins: git-open, zsh-autosuggestions, zsh-syntax-highlighting must be cloned into $ZSH/custom/plugins/
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
@@ -38,10 +40,7 @@ ZSH_DISABLE_COMPFIX=true
 source $ZSH/oh-my-zsh.sh
 
 # Environment: Android, Unity, AI tokens, locale, secrets
-source $HOME/.bash_profile
-
-# opencode
-export PATH="/Users/manuel.gil/.opencode/bin:$PATH"
+[[ -f "$HOME/.bash_profile" ]] && source "$HOME/.bash_profile"
 
 # FZF
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden"
@@ -61,14 +60,16 @@ alias python=python3.12
 alias pip=pip3.12
 alias python3=python3.12
 alias pip3=pip3.12
-alias llvm-objdump="~/Library/Android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-objdump"
-alias zipalign="/Users/manuel.gil/Library/Android/sdk/build-tools/35.0.0-rc3/zipalign"
-
-# Unity aliases
-alias build_android="./jam AndroidPlayer64IL2CPP -sCONFIG=release && ./jam MacEditorArm64 -sCONFIG=release"
-alias build_android_and_run="build_android && ./run"
-alias check_if_gradle_version_was_bumped="build_android && perl utr.pl --suite='editor' --clean-library --category='RequirePlatformSupport' --setup-platform='android' --category='RequirePlatformSupport' --projectlist='Tests/EditModeAndPlayModeTests/projectlist-withandroidplayers-editor.txt' --testfilter='Tests\.AndroidGradleTemplateTests\.CheckIfGradleTemplateVersionWasBumped' --testproject='PlatformDependent/AndroidPlayer/Tests/EditorTests'"
+alias llvm-objdump='$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-objdump'
+alias yt-480='yt-dlp -f "bestvideo[height<=480]+bestaudio/best[height<=480]" -o "$HOME/Downloads/videos/%(title)s.%(ext)s"'
 
 # Alacritty move arrows
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+
+# Work aliases (Unity, etc.)
+[[ -f "$HOME/.zshrc.work" ]] && source "$HOME/.zshrc.work"
+
+# PATH entries (guarded to avoid clutter if not installed)
+[[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
+[[ -d "/opt/homebrew/opt/lsof/bin" ]] && export PATH="/opt/homebrew/opt/lsof/bin:$PATH"
