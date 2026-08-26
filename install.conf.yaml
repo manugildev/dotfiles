@@ -11,12 +11,9 @@
     ~/.bash_profile: bash_profile
     ~/.profile: profile
     ~/.gitconfig: gitconfig
-    ~/.Xresources-regolith: Xresources-regolith
     ~/.config/alacritty: config/alacritty
     ~/.config/nvim: config/nvim/
     ~/.config/aerospace: config/aerospace/
-    ~/.config/regolith/Xresources: config/regolith/Xresources
-    ~/.config/regolith/i3/config: config/regolith/i3/config
     ~/.config/tmux/start_session.sh: config/tmux/start_session.sh
     ~/.config/tmux/tmux.conf: config/tmux/tmux.conf
     ~/.config/agent-of-empires/config.toml: config/agent-of-empires/config.toml

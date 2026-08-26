@@ -1,0 +1,22 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+
+- clean: ['~']
+
+- create:
+    - ~/.config/regolith
+    - ~/.config/regolith/i3
+
+- link:
+    ~/.zshrc: zshrc
+    ~/.bash_profile: bash_profile
+    ~/.profile: profile
+    ~/.gitconfig: gitconfig
+    ~/.Xresources-regolith: legacy/Xresources-regolith
+    ~/.config/nvim: config/nvim/
+    ~/.config/tmux/start_session.sh: config/tmux/start_session.sh
+    ~/.config/tmux/tmux.conf: config/tmux/tmux.conf
+    ~/.config/regolith/Xresources: legacy/config/regolith/Xresources
+    ~/.config/regolith/i3/config: legacy/config/regolith/i3/config
