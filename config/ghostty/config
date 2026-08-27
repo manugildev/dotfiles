@@ -1,0 +1,45 @@
+# Run tmux on startup (only for first surface)
+initial-command = shell: zsh -l
+
+# Font
+font-family = UbuntuMono Nerd Font
+font-family-bold = UbuntuMono Nerd Font
+font-family-italic = UbuntuMono Nerd Font
+font-size = 15
+
+# Colors (ANSI 0–15)
+palette = 0=#080B10
+palette = 1=#FA2573
+palette = 2=#9CFF00
+palette = 3=#DFD460
+palette = 4=#1080D0
+palette = 5=#8700FF
+palette = 6=#43A8D0
+palette = 7=#BBBBBB
+palette = 8=#555555
+palette = 9=#F6669D
+palette = 10=#B1E05F
+palette = 11=#FFF26D
+palette = 12=#00AFFF
+palette = 13=#AF87FF
+palette = 14=#51CEFF
+palette = 15=#FFFFFF
+
+background = #0A0E14
+foreground = #EAEAEA
+
+cursor-color = #FFFFFF
+cursor-text = #0A0E14
+
+# Keyboard bindings
+keybind = shift+enter=text:\x1b\r
+keybind = ctrl+right=text:\x1bF
+keybind = ctrl+left=text:\x1bB
+
+# Window
+macos-titlebar-style = hidden
+confirm-close-surface = false
+
+# Window padding
+window-padding-x = 8
+window-padding-y = 4

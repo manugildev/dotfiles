@@ -16,6 +16,7 @@
     ~/.config/aerospace: config/aerospace/
     ~/.config/tmux/start_session.sh: config/tmux/start_session.sh
     ~/.config/tmux/tmux.conf: config/tmux/tmux.conf
+    ~/.config/ghostty/config: config/ghostty/config
     ~/.config/agent-of-empires/config.toml: config/agent-of-empires/config.toml
 
 - shell:
