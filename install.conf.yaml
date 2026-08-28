@@ -20,6 +20,7 @@
     ~/.config/agent-of-empires/config.toml: config/agent-of-empires/config.toml
 
 - shell:
+    - ["git submodule update --init --recursive", Init submodules]
     - ["git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm || true", Clone TPM]
     - ["~/.config/tmux/plugins/tpm/bin/install_plugins", Install tmux plugins]
     - [bash macos.sh, Apply macOS system settings]
