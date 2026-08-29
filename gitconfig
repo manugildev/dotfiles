@@ -60,3 +60,22 @@
     sc = "!f() { git rev-parse --verify $1 >/dev/null 2>&1 && git checkout $1 || git checkout -b $1; }; f"
     gc-full = !git -c core.longPaths=true gc --aggressive --prune=now && git lfs prune --verify-remote
 
+[safe]
+	directory = /opt/homebrew
+	directory = /opt/homebrew/Library/Taps/isen-ng/homebrew-dotnet-sdk-versions
+	directory = /opt/homebrew/Library/Taps/upsun/homebrew-tap
+	directory = /opt/homebrew/Library/Taps/sidneys/homebrew-homebrew
+	directory = /opt/homebrew/Library/Taps/domt4/homebrew-autoupdate
+	directory = /opt/homebrew/Library/Taps/shaunsingh/homebrew-sfmono-nerd-font-ligaturized
+	directory = /opt/homebrew/Library/Taps/microsoft/homebrew-git
+	directory = /opt/homebrew/Library/Taps/platformsh/homebrew-tap
+	directory = /opt/homebrew/Library/Taps/asheshgoplani/homebrew-tap
+	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-services
+	directory = /opt/homebrew/Library/Taps/ddev/homebrew-ddev
+	directory = /opt/homebrew/Library/Taps/nikitabobko/homebrew-tap
+	directory = /opt/homebrew/Library/Taps/felixkratz/homebrew-formulae
+	directory = /opt/homebrew/Library/Taps/bokken/homebrew-tools
+	directory = /opt/homebrew/Library/Taps/asmvik/homebrew-formulae
+	directory = /opt/homebrew/Library/Taps/unity-technologies/homebrew-yamato
+	directory = /opt/homebrew/Library/Taps/unity-technologies/homebrew-unity
+	directory = /opt/homebrew
