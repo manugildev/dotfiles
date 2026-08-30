@@ -18,10 +18,10 @@ ZSH_THEME="robbyrussell"
 
 plugins=(
   git
-  git-open
+  # git-open
   npm
-  zsh-autosuggestions
-  zsh-syntax-highlighting
+  # zsh-autosuggestions
+  # zsh-syntax-highlighting
 )
 
 # Hardcode brew prefix (avoids 38ms `brew --prefix` subprocess call)
@@ -72,3 +72,6 @@ bindkey "^[[1;5D" backward-word
 # Homebrew is shared by two users through the admin group.
 # umask 002 makes new files group-writable, so both users can change them.
 umask 002
+
+# Custom for gus
+alias brew="sudo -Hu manuel.gil brew"
