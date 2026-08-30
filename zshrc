@@ -25,10 +25,10 @@ ZSH_THEME="robbyrussell"
 
 plugins=(
   git
-  git-open
+  # git-open
   npm
-  zsh-autosuggestions
-  zsh-syntax-highlighting
+  # zsh-autosuggestions
+  # zsh-syntax-highlighting
 )
 
 # Hardcode brew prefix (avoids 38ms `brew --prefix` subprocess call)
@@ -73,3 +73,8 @@ bindkey "^[[1;5D" backward-word
 # PATH entries (guarded to avoid clutter if not installed)
 [[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
 [[ -d "/opt/homebrew/opt/lsof/bin" ]] && export PATH="/opt/homebrew/opt/lsof/bin:$PATH"
+
+# Custom for gus
+alias brew="sudo -Hu manuel.gil brew"
+export ANTHROPIC_BASE_URL=""
+export ANTHROPIC_AUTH_TOKEN=""
