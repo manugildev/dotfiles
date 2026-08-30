@@ -16,11 +16,8 @@ export LC_ALL=en_US.UTF-8
 export PATH="$PATH:$HOME/.scripts"
 
 # AI
-export ANTHROPIC_BASE_URL=REMOVED_URL
-export ANTHROPIC_AUTH_TOKEN=REMOVED_TOKEN
 export JIRA_AUTH_TOKEN="REMOVED_TOKEN"
 google_auth_token() { gcloud auth print-access-token 2>/dev/null; }
-
 
 # Added by Antigravity CLI installer
 export PATH="/Users/manuel.gil/.local/bin:$PATH"
