@@ -23,10 +23,10 @@ ZSH_THEME="robbyrussell"
 
 plugins=(
   git
-  git-open
+  # git-open
   npm
-  zsh-autosuggestions
-  zsh-syntax-highlighting
+  # zsh-autosuggestions
+  # zsh-syntax-highlighting
 )
 
 # Hardcode brew prefix (avoids 38ms `brew --prefix` subprocess call)
@@ -82,3 +82,7 @@ export HEADROOM_TELEMETRY="off"
 export ANTHROPIC_BASE_URL="http://127.0.0.1:8787"
 export ENABLE_TOOL_SEARCH="true"
 # <<< headroom persistent env <<<
+
+# Custom for gus
+alias brew="sudo -Hu manuel.gil brew"
+
