@@ -6,7 +6,7 @@
     ignoreRevsFile = .git-blame-ignore-revs
 [core]
     editor = nvim
-    excludesfile = $HOME/.gitignore_global
+	excludesfile = /Users/manuel.gil/.gitignore_global
     # turn on filesystem watcher to avoid rescanning tree for status
 	untrackedCache = true
 	fsmonitor = true
@@ -79,3 +79,12 @@
 	directory = /opt/homebrew/Library/Taps/unity-technologies/homebrew-yamato
 	directory = /opt/homebrew/Library/Taps/unity-technologies/homebrew-unity
 	directory = /opt/homebrew
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://github.cds.internal.unity3d.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
