@@ -12,7 +12,7 @@
 	fsmonitor = true
 [credential]
     helper = store
-	helper = 
+	helper =
 	helper = /usr/local/share/gcm-core/git-credential-manager
 [init]
     defaultBranch = main
@@ -80,11 +80,11 @@
 	directory = /opt/homebrew/Library/Taps/unity-technologies/homebrew-unity
 	directory = /opt/homebrew
 [credential "https://github.com"]
-	helper = 
+	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
+	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://github.cds.internal.unity3d.com"]
-	helper = 
+	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
