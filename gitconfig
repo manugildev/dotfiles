@@ -1,64 +1,64 @@
 [user]
-    name = Manuel Gil
-    email = manuel.gil@unity3d.com
+	name = Manuel Gil
+	email = manuel.gil@unity3d.com
 [blame]
-    # commits to skip on blame (look in the file for docs)
-    ignoreRevsFile = .git-blame-ignore-revs
+	# commits to skip on blame (look in the file for docs)
+	ignoreRevsFile = .git-blame-ignore-revs
 [core]
-    editor = nvim
+	editor = nvim
 	excludesfile = /Users/manuel.gil/.gitignore_global
-    # turn on filesystem watcher to avoid rescanning tree for status
+	# turn on filesystem watcher to avoid rescanning tree for status
 	untrackedCache = true
 	fsmonitor = true
 [credential]
-    helper = store
+	helper = store
 	helper =
 	helper = /usr/local/share/gcm-core/git-credential-manager
 [init]
-    defaultBranch = main
+	defaultBranch = main
 [pull]
-    ff = true
-    rebase = true
+	ff = true
+	rebase = true
 [fetch]
-    prune = true
-    pruneTags = true
-    all = true
+	prune = true
+	pruneTags = true
+	all = true
 [feature]
-    # optimizations to speed certain operations in monorepos
-    manyFiles = true
+	# optimizations to speed certain operations in monorepos
+	manyFiles = true
 [diff]
-    tool = bc
-    algorithm = histogram
+	tool = bc
+	algorithm = histogram
 [difftool]
-    prompt = true
+	prompt = true
 [merge]
-    tool = bc
+	tool = bc
 [mergetool "bc"]
-    trustExitCode = true
+	trustExitCode = true
 [status]
-    showUntrackedFiles = all
+	showUntrackedFiles = all
 [column]
-    ui = auto
+	ui = auto
 [branch]
-    sort = -committerdate
+	sort = -committerdate
 [tag]
-    sort = version:refname
+	sort = version:refname
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
 [diff-so-fancy]
-    stripLeadingSymbols = false
+	stripLeadingSymbols = false
 [oh-my-zsh]
-    hide-dirty = 1
+	hide-dirty = 1
 
 #[lfs]
 #    storage = /opt/lfs_storage
 
 [alias]
-    sc = "!f() { git rev-parse --verify $1 >/dev/null 2>&1 && git checkout $1 || git checkout -b $1; }; f"
-    gc-full = !git -c core.longPaths=true gc --aggressive --prune=now && git lfs prune --verify-remote
+	sc = "!f() { git rev-parse --verify $1 >/dev/null 2>&1 && git checkout $1 || git checkout -b $1; }; f"
+	gc-full = !git -c core.longPaths=true gc --aggressive --prune=now && git lfs prune --verify-remote
 
 [safe]
 	directory = /opt/homebrew
