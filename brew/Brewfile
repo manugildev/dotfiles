@@ -1,13 +1,19 @@
-tap "asheshgoplani/tap"
+tap "asheshgoplani/tap", trusted: { formulae: ["agent-deck"] }
 tap "asmvik/formulae", "https://github.com/asmvik/homebrew-formulae.git", trusted: true
+tap "bokken/tools", "git@github.cds.internal.unity3d.com:unity/bokken.homebrew.git", trusted: true
 tap "ddev/ddev", "https://github.com/ddev/homebrew-ddev.git", trusted: true
 tap "domt4/autoupdate", "https://github.com/DomT4/homebrew-autoupdate.git"
 tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae"
 tap "homebrew/services"
 tap "isen-ng/dotnet-sdk-versions", trusted: true
+tap "microsoft/git", trusted: true
 tap "nikitabobko/tap", trusted: true
+tap "platformsh/tap", trusted: true
 tap "shaunsingh/sfmono-nerd-font-ligaturized", "https://github.com/shaunsingh/homebrew-SFMono-Nerd-Font-Ligaturized", trusted: true
 tap "sidneys/homebrew", trusted: { formulae: ["openssl@1.0"] }
+tap "unity-technologies/unity", "git@github.cds.internal.unity3d.com:unity/homebrew-unity.git", trusted: true
+tap "unity-technologies/yamato", "git@github.cds.internal.unity3d.com:unity/yamato-brew.git", trusted: true
+tap "upsun/tap", trusted: { formulae: ["platformsh-cli"] }
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
 # Terminal multiplexer
@@ -20,10 +26,10 @@ brew "lz4"
 brew "openjdk"
 # Tool for reverse engineering 3rd party, closed, binary Android apps
 brew "apktool"
-# C library implementing the SSH2 protocol
-brew "libssh2"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
+# C library implementing the SSH2 protocol
+brew "libssh2"
 # C library of Git core methods that is re-entrant and linkable
 brew "libgit2"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -37,7 +43,7 @@ brew "cmake"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node"
 # Package acting as bridge between Node projects and their package managers
-brew "corepack"
+brew "corepack", link: false
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
@@ -45,7 +51,7 @@ brew "curl"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
 # Pack, ship and run any application as a lightweight container
-brew "docker", link: false
+brew "docker"
 # Isolated development environments using Docker
 brew "docker-compose"
 # .NET Core
@@ -64,12 +70,12 @@ brew "fswatch"
 brew "fzf"
 # GNU awk utility
 brew "gawk"
-# Interact with Google Gemini AI models from the command-line
-brew "gemini-cli"
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system
 brew "git"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
 # Git extension for versioning large files
 brew "git-lfs"
 # Open-source GitLab command-line tool
@@ -92,26 +98,20 @@ brew "kubernetes-cli"
 brew "lazygit"
 # Access large language models from the command-line
 brew "llm"
+# Utility to list open files
+brew "lsof"
 # Java-based project management
 brew "maven"
 # Hash utilities
 brew "md5sha1sum", link: true
 # Cross platform, open source .NET development framework
 brew "mono"
-# Feature-rich command-line audio/video downloader
-brew "yt-dlp"
-# Media player based on MPlayer and mplayer2
-brew "mpv"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# Search tool like grep and The Silver Searcher
-brew "ripgrep"
 # Development kit for the Java programming language
 brew "openjdk@17"
 # 7-Zip (high compression file archiver) implementation
 brew "p7zip"
-# Swiss-army knife of markup format conversion
-brew "pandoc"
 # Execute binaries from Python packages in isolated environments
 brew "pipx"
 # Protocol buffers (Google's data interchange format)
@@ -124,6 +124,8 @@ brew "python@3.12"
 brew "rdfind"
 # Utility for computing and verifying hash sums of files
 brew "rhash"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
 # 7-Zip is a file archiver with a high compression ratio
 brew "sevenzip"
 # Non-interactive SSH password auth
@@ -138,16 +140,23 @@ brew "tldr"
 brew "tree"
 # Sends magic packets to wake up network-devices
 brew "wakeonlan"
-# Executes a program periodically, showing output fullscreen
+# Library to create, extract, and modify Windows Imaging files
 brew "wimlib"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Zsh port of Fish shell's history search
 brew "zsh-history-substring-search"
+brew "bokken/tools/bokken-cli"
 # A window border system for macOS
 brew "felixkratz/formulae/borders", trusted: true
 # Offline NT Password Editor
 brew "sidneys/homebrew/chntpw", trusted: true
+# Unity Downloader CLI
+brew "unity-technologies/unity/unity-downloader-cli"
+# Yamato command line tool
+brew "unity-technologies/yamato/yamato-cli"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "nikitabobko/tap/aerospace"
 # GPU-accelerated terminal emulator
@@ -156,6 +165,8 @@ cask "alacritty"
 cask "alt-tab"
 # Tools for building Android applications
 cask "android-studio"
+# Multi-track audio editor and recorder
+cask "audacity"
 # Compare files and folders
 cask "beyond-compare"
 # Web browser focusing on privacy
@@ -167,11 +178,9 @@ cask "chatgpt"
 # Anthropic's official Claude AI desktop app
 cask "claude"
 # Terminal-based AI coding assistant
-cask "claude-code"
+cask "claude-code@latest"
 # Browser for SQLite databases
 cask "db-browser-for-sqlite"
-# Voice and text chat software
-cask "discord"
 # App to build and share containerised applications and microservices
 cask "docker-desktop"
 # This cask follows releases from https://github.com/dotnet/core/tree/master
@@ -218,8 +227,6 @@ cask "shottr"
 cask "spotify"
 # VPN client for secure internet access and private browsing
 cask "surfshark"
-# Real time file synchronisation software
-cask "syncthing-app"
 # Mesh VPN based on WireGuard
 cask "tailscale-app"
 # Remote access and connectivity software focused on security
@@ -287,3 +294,4 @@ vscode "vscodevim.vim"
 vscode "wabiloo.m3u8-hls-vscode"
 vscode "yy0931.vscode-sqlite3-editor"
 vscode "zainchen.json"
+uv "headroom-ai[all]"
