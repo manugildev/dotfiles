@@ -1,7 +1,7 @@
 export UNITY_TRUNK="/opt/UnitySrc/unity-trunk"
-export ANDROID_HOME="$UNITY_TRUNK/External/NonRedistributable/Android sdk/builds"
+export ANDROID_HOME="$UNITY_TRUNK/artifacts/Android SDK"
 export ANDROID_SDK_ROOT="$ANDROID_HOME"
-export ANDROID_NDK_ROOT="$UNITY_TRUNK/External/NonRedistributable/Android ndk/builds"
+export ANDROID_NDK_ROOT="$UNITY_TRUNK/artifacts/Android NDK"
 if [ -d "$ANDROID_SDK_ROOT/cmdline-tools/latest" ]; then
   ANDROID_CMDLINE="$ANDROID_SDK_ROOT/cmdline-tools/latest"
 else
