@@ -5,7 +5,7 @@ export ANDROID_NDK_ROOT="$UNITY_TRUNK/artifacts/Android NDK"
 if [ -d "$ANDROID_SDK_ROOT/cmdline-tools/latest" ]; then
   ANDROID_CMDLINE="$ANDROID_SDK_ROOT/cmdline-tools/latest"
 else
-  ANDROID_CMDLINE=$(ls -d "$ANDROID_SDK_ROOT"/cmdline-tools/*/ 2>/dev/null | sort -V | tail -n 1)
+  ANDROID_CMDLINE=$(printf '%s\n' "$ANDROID_SDK_ROOT"/cmdline-tools/*/ 2>/dev/null | sort -V | tail -n 1)
 fi
 export ANDROID_AVD_HOME=$HOME/.config/.android/avd
 export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_CMDLINE/bin"
