@@ -1,18 +1,13 @@
 [user]
 	name = Manuel Gil
 	email = manuel.gil@unity3d.com
-[blame]
-	# commits to skip on blame (look in the file for docs)
-	ignoreRevsFile = .git-blame-ignore-revs
 [core]
 	editor = nvim
-	excludesfile = /Users/manuel.gil/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	# turn on filesystem watcher to avoid rescanning tree for status
 	untrackedCache = true
 	fsmonitor = true
 [credential]
-	helper = store
-	helper =
 	helper = /usr/local/share/gcm-core/git-credential-manager
 [init]
 	defaultBranch = main
@@ -78,7 +73,6 @@
 	directory = /opt/homebrew/Library/Taps/asmvik/homebrew-formulae
 	directory = /opt/homebrew/Library/Taps/unity-technologies/homebrew-yamato
 	directory = /opt/homebrew/Library/Taps/unity-technologies/homebrew-unity
-	directory = /opt/homebrew
 [credential "https://github.com"]
 	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
