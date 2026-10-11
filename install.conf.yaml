@@ -23,6 +23,10 @@
 
 - shell:
     - ["git submodule update --init --recursive", Init submodules]
+    - ['[ -d ~/.oh-my-zsh ] || RUNZSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"', Install oh-my-zsh]
+    - ["git clone https://github.com/paulirish/git-open ~/.oh-my-zsh/custom/plugins/git-open || true", Clone git-open plugin]
+    - ["git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions || true", Clone zsh-autosuggestions plugin]
+    - ["git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting || true", Clone zsh-syntax-highlighting plugin]
     - ["git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm || true", Clone TPM]
     - ["~/.config/tmux/plugins/tpm/bin/install_plugins", Install tmux plugins]
     - [bash macos.sh, Apply macOS system settings]
