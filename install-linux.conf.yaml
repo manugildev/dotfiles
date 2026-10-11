@@ -18,5 +18,15 @@
     ~/.config/nvim: config/nvim/
     ~/.config/tmux/start_session.sh: config/tmux/start_session.sh
     ~/.config/tmux/tmux.conf: config/tmux/tmux.conf
+    ~/.config/agent-of-empires/config.toml: config/agent-of-empires/config.toml
     ~/.config/regolith/Xresources: legacy/config/regolith/Xresources
     ~/.config/regolith/i3/config: legacy/config/regolith/i3/config
+
+- shell:
+    - ["git submodule update --init --recursive", Init submodules]
+    - ['[ -d ~/.oh-my-zsh ] || RUNZSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"', Install oh-my-zsh]
+    - ["git clone https://github.com/paulirish/git-open ~/.oh-my-zsh/custom/plugins/git-open || true", Clone git-open plugin]
+    - ["git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions || true", Clone zsh-autosuggestions plugin]
+    - ["git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting || true", Clone zsh-syntax-highlighting plugin]
+    - ["git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm || true", Clone TPM]
+    - ["~/.config/tmux/plugins/tpm/bin/install_plugins", Install tmux plugins]
