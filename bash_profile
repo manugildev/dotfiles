@@ -15,8 +15,10 @@ export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export PATH="$PATH:$HOME/.scripts"
 
+# Secrets (JIRA_AUTH_TOKEN, etc.) live in an untracked file
+[ -f "$HOME/.secrets" ] && . "$HOME/.secrets"
+
 # AI
-export JIRA_AUTH_TOKEN="REMOVED_TOKEN"
 google_auth_token() { gcloud auth print-access-token 2>/dev/null; }
 
 # Added by Antigravity CLI installer
