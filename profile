@@ -20,13 +20,3 @@ fi
 
 # Added by Antigravity CLI installer
 export PATH="/Users/manuel.gil/.local/bin:$PATH"
-
-# >>> headroom persistent env >>>
-export HEADROOM_PORT="8787"
-export HEADROOM_HOST="127.0.0.1"
-export HEADROOM_MODE="cache"
-export HEADROOM_BACKEND="anthropic"
-export HEADROOM_TELEMETRY="off"
-export ANTHROPIC_BASE_URL="http://127.0.0.1:8787"
-export ENABLE_TOOL_SEARCH="true"
-# <<< headroom persistent env <<<
