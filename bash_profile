@@ -21,6 +21,7 @@ export PATH="$PATH:$HOME/.scripts"
 # AI
 google_auth_token() { gcloud auth print-access-token 2>/dev/null; }
 
-# Added by Antigravity CLI installer
-export PATH="/Users/manuel.gil/.local/bin:$PATH"
-export JAVA_HOME=/Users/manuel.gil/Library/Java/JavaVirtualMachines/jbr-17.0.7/Contents/Home
+# ~/.local/bin (Antigravity CLI, etc.)
+[ -d "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
+JBR_HOME="$HOME/Library/Java/JavaVirtualMachines/jbr-17.0.7/Contents/Home"
+[ -d "$JBR_HOME" ] && export JAVA_HOME="$JBR_HOME"
