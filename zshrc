@@ -3,11 +3,6 @@ tms() {
   session=$(tmux list-sessions -F '#{session_name}' 2>/dev/null | fzf) && tmux attach -t "$session"
 }
 
-# Only attach if in a terminal, not in nested shells or VS Code
-if [[ -n $PS1 && -z $TMUX && -t 0 && -t 1 && -z $VSCODE_RESOLVING_ENVIRONMENT && $TERM_PROGRAM != vscode ]]; then
-  tms
-fi
-
 # Exit tmux popup with Escape
 if [[ -n "$TMUX_POPUP_SHELL" ]]; then
   KEYTIMEOUT=1

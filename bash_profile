@@ -20,6 +20,3 @@ export PATH="$PATH:$HOME/.scripts"
 
 # AI
 google_auth_token() { gcloud auth print-access-token 2>/dev/null; }
-
-JBR_HOME="$HOME/Library/Java/JavaVirtualMachines/jbr-17.0.7/Contents/Home"
-[ -d "$JBR_HOME" ] && export JAVA_HOME="$JBR_HOME"

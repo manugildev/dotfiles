@@ -1,6 +1,6 @@
 [user]
 	name = Manuel Gil
-	email = manuel.gil@unity3d.com
+	email = manugildev@gmail.com
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore_global
