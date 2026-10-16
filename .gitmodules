@@ -5,3 +5,4 @@
 [submodule "config/nvim"]
 	path = config/nvim
 	url = https://github.com/manugildev/lazyvim-config
+	ignore = untracked
