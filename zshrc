@@ -18,14 +18,22 @@ ZSH_THEME="robbyrussell"
 
 plugins=(
   git
-  # git-open
+  #git-open
   npm
-  # zsh-autosuggestions
-  # zsh-syntax-highlighting
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 # Hardcode brew prefix (avoids 38ms `brew --prefix` subprocess call)
 FPATH="/opt/homebrew/share/zsh/site-functions:${FPATH}"
+
+# PATH entries (guarded to avoid clutter if not installed)
+[[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
+[[ -d "/opt/homebrew/opt/lsof/bin" ]] && export PATH="/opt/homebrew/opt/lsof/bin:$PATH"
+
+# Homebrew is shared by two users through the admin group.
+# umask 002 makes new files group-writable, so both users can change them.
+umask 002
 
 # Skip compaudit security check (saves ~23ms). Re-enable if you add untrusted fpath dirs.
 ZSH_DISABLE_COMPFIX=true
@@ -66,18 +74,3 @@ bindkey "^[[1;5D" backward-word
 # Work aliases (Unity, etc.)
 
 # [[ -f "$HOME/.zshrc.work" ]] && source "$HOME/.zshrc.work"
-
-# PATH entries (guarded to avoid clutter if not installed)
-[[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
-[[ -d "/opt/homebrew/opt/lsof/bin" ]] && export PATH="/opt/homebrew/opt/lsof/bin:$PATH"
-
-# Homebrew is shared by two users through the admin group.
-# umask 002 makes new files group-writable, so both users can change them.
-umask 002
-
-# Custom for gus
-export PATH=/opt/homebrew/bin:$PATH
-
-# Homebrew is shared by two users through the admin group.
-# umask 002 makes new files group-writable, so both users can change them.
-umask 002
