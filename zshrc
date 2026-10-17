@@ -77,3 +77,8 @@ umask 002
 
 # Custom for gus
 alias brew="sudo -Hu manuel.gil brew"
+export PATH=/opt/homebrew/bin:$PATH
+
+# Homebrew is shared by two users through the admin group.
+# umask 002 makes new files group-writable, so both users can change them.
+umask 002
