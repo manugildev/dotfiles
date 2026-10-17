@@ -76,3 +76,7 @@ bindkey "^[[1;5D" backward-word
 # PATH entries (guarded to avoid clutter if not installed)
 [[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
 [[ -d "/opt/homebrew/opt/lsof/bin" ]] && export PATH="/opt/homebrew/opt/lsof/bin:$PATH"
+
+# Homebrew is shared by two users through the admin group.
+# umask 002 makes new files group-writable, so both users can change them.
+umask 002
