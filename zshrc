@@ -74,7 +74,6 @@ bindkey "^[[1;5D" backward-word
 umask 002
 
 # Custom for gus
-alias brew="sudo -Hu manuel.gil brew"
 export PATH=/opt/homebrew/bin:$PATH
 
 # Homebrew is shared by two users through the admin group.
