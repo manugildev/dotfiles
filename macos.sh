@@ -83,6 +83,7 @@ defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool 
 
 # Screenshots / recordings
 defaults write com.apple.screencapture showsClicks -bool true          # default: false (show clicks in recordings)
+defaults write com.apple.screencapture disable-shadow -bool true       # default: false (window shadow in screenshots)
 
 # Global UI
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"       # default: not set (Light)
