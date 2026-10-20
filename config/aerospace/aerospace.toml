@@ -311,6 +311,10 @@ run = 'move-node-to-workspace Y'
 if.app-id = 'cc.ffitch.shottr'
 run = 'layout floating'
 
+[[on-window-detected]]
+if.app-id = 'com.apple.ScreenSharing'
+run = 'layout floating'
+
 ###############################################################################
 ## Monitor
 ###############################################################################
