@@ -59,10 +59,8 @@ prompt_context() {
 alias tmx="tmux attach -t \$(tmux list-sessions -F '#{session_last_attached} #{session_name}' | sort -rn | head -1 | awk '{print \$2}')"
 alias ls="eza -s=ext -l --no-user --group-directories-first"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
-alias python=python3.12
-alias pip=pip3.12
-alias python3=python3.12
-alias pip3=pip3.12
+alias python=python3
+alias pip=pip3
 alias llvm-objdump='$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-objdump'
 alias yt-480='yt-dlp -f "bestvideo[height<=480]+bestaudio/best[height<=480]" -o "$HOME/Downloads/videos/%(title)s.%(ext)s"'
 
