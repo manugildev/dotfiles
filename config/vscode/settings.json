@@ -158,5 +158,11 @@
 
     // ── Debug and security ──────────────────────────────────────────
     "debug.onTaskErrors": "showErrors",
-    "security.workspace.trust.untrustedFiles": "open"
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.editorAssociations": {
+        "*.csv": "default",
+        "*.tsv": "default",
+        "*.tab": "default",
+        "*.psv": "default"
+    }
 }
