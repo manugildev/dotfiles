@@ -9,12 +9,12 @@ compaction_reminder_percent = 75
 default_agent = "claude-code"
 max_concurrent_workers = 5
 node_path = ""
-offer_structured_in_new_session = false
 rate_limit_auto_resume = false
 replay_events = 0
 restrict_agents = false
 show_tool_durations = true
 silent_orphan_grace_secs = 120
+structured_view = "off"
 
 [auth]
 persist_sessions = true
