@@ -57,7 +57,8 @@ alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias python=python3
 alias pip=pip3
 alias llvm-objdump='$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-objdump'
-alias yt-480='yt-dlp -f "bestvideo[height<=480]+bestaudio/best[height<=480]" -o "$HOME/Downloads/videos/%(title)s.%(ext)s"'
+alias yt-480='yt-dlp -f "bestvideo[height<=480]+bestaudio/best[height<=480]" --merge-output-format mp4 -o "$HOME/Downloads/videos/%(title)s.%(ext)s"'
+alias yt-360='yt-dlp -f "bestvideo[height<=360]+bestaudio/best[height<=360]" -o "$HOME/Downloads/videos/%(title)s.%(ext)s"'
 
 # Alacritty move arrows
 bindkey "^[[1;5C" forward-word
